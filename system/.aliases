@@ -1,6 +1,6 @@
 alias lsa='ls -al'
 alias dotar='tar -cvfz'
 alias untar='tar -xvf'
-alias ztl='~/Documents/zettelkasten && vim'
-alias notes='~/_software/Workflowy/.WorkFlowy-x86_64.AppImage'
+alias ztl='cd ~/Documents/zettelkasten && vim'
+alias notes='~/_software/Workflowy/./WorkFlowy-x86_64.AppImage'
 alias g++='g++ --pedantic-errors -Wall -Weffc++ -Wextra -Wsign-conversion -Werror -std=c++17'

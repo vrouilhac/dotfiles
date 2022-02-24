@@ -1,82 +1,62 @@
-"
-" +~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+
-" | Last Update: 2022-02-08																		  |
-" |																															|
-" |	Summary:																										|
-" |		- Plugins..........................25											|
-" |		- Vim Basics.......................34											|
-" |		- AutoCommands.....................34											|
-" |	  - Snippets.........................71											|
-" |		- Mapping..........................79											|
-" |																															|
-" |																															|
-" |																															|
-" |																															|
-" |																															|
-" |																															|
-" |																															|
-" |																															|
-" |																															|
-" |																															|
-" |																															|
-" |																															|
-" |																															|
-" +~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+
-"
-
-" ~~~ Plugins ~~~ "
-
+" Use Tim Pope pathogen plugin https://github.com/tpope/vim-pathogen
 execute pathogen#infect()
 
+" Wakatime plugin for stats
 call plug#begin('~/.vim/plugged')
-
-Plug 'scrooloose/nerdtree'
 Plug 'wakatime/vim-wakatime'
-Plug 'tomasiser/vim-code-dark'
 Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-surround'
-
 call plug#end()
 
-" ~~~ Vim Basics ~~~ "
+filetype plugin indent on	" enables detection of filetype and indent including those inside plugins
+syntax on			" enables syntax color
 
-set nocompatible
-set t_Co=256
+set number 			" show each line it's number in the margin
+set numberwidth=6		" set the size of the margin
+set relativenumber		" set line number relative to cursor line
+set incsearch			" while searching pattern is highlighted
+set autoindent			" keeps current indententation when going on next line
+set path+=**;/src		" allow tools using path to search downward (ONLY DIRECTORIES)
+set shiftwidth=2		" set the width for indent << >>
+set softtabstop=2		" set width of a tab
+set wrap			" split (visually) lengthy lines
+set linebreak			" if line is too long breaks it
+set textwidth=80		" maximum number of character before line breaks
+set wildmenu			" when using completion will show matching in small popup (go on ztl & run :e ar and press Tab)
+set wildmode=list:full		" use a list to show completion from popup (full is used because wildmenu needs it)
+set hlsearch			" highlight search patterns
+set incsearch			" move the cursor to search that match the pattern as typing it
+set foldmethod=indent		" enable the ability to fold block
+set scrolloff			" number of lines to keep above/below cursor
 
-syntax on
-filetype plugin on
+set statusline={%t}
+set statusline+=\ %m
+set statusline+=\ (%q)
+set statusline+=\ [b:%n]
+set statusline+=\ `%L`
 
-set path+=**
-set wildmenu
-set wildmode=list
-set hlsearch
-set incsearch
-set laststatus=2
-set showcmd
-set showmode
-set shiftwidth=2
-set tabstop=2
-set expandtab
-set ignorecase 	 
-set scrolloff=8  
-set scrolljump=1 
-set showfulltag
-set completeopt=menu,preview,longest
-set completepopup=height:10,width:60,highlight:InfoPopup
-set completepopup=align:menu,border:off,highlight:Pmenu
+" put the character under curstor to uppercase or lowercase (invert the current case)
+nnoremap ,u ~
 
-set statusline=%f
-set statusline+=\ %y
-set statusline+=%m
-set statusline+=\ buf-%n
-set statusline+=\ (%04l/%04L)
+" mapping to scroll faster the screen
+nnoremap <C-J> 6j
+nnoremap <C-K> 6k
+nnoremap <C-H> ^
+nnoremap <C-L> $
 
-" ~~~ AutoCommands ~~~ "
-au BufNewFile,BufRead *.ejs set filetype=html
+iabbrev logs console.log("
+iabbrev logo console.log({
+nnoremap <C-F> /
 
-" ~~~ Snippets ~~~
-nnoremap ,logo :-1read $HOME/.vim/.snippets/console-log.logo.js<CR>f}i
-nnoremap ,logv yiw<ESC>o<ESC>:-1read $HOME/.vim/.snippets/console-log.logo.js<CR>f}hp
-nnoremap ,logs :-1read $HOME/.vim/.snippets/console-log.logs.js<CR>f"wwi
-nnoremap ,rfc :-1read $HOME/.vim/.snippets/react-fc-component.js<CR>2jeli
-nnoremap ,html :-1read $HOME/.vim/.snippets/html-squeleton.html<CR>:setlocal 4jf<;i
+" netrw
+let g:netrw_liststyle=3		" Change the list tyle 'similar' to nerdtree
+nnoremap <C-N> :Explore<CR>
+
+" folding mapping
+nnoremap zz za
+nnoremap ZZ zA
+
+
+
+
+" WORK IN PROGRESS
+set suffixesadd+=.js,.ts,.tsx,.jsx    " makes it true only for certain file types ? 

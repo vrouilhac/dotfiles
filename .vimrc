@@ -26,7 +26,7 @@ set wildmode=list:full		" use a list to show completion from popup (full is used
 set hlsearch			" highlight search patterns
 set incsearch			" move the cursor to search that match the pattern as typing it
 set foldmethod=indent		" enable the ability to fold block
-set scrolloff			" number of lines to keep above/below cursor
+set scrolloff=8			" number of lines to keep above/below cursor
 
 set statusline={%t}
 set statusline+=\ %m

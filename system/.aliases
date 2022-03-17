@@ -6,4 +6,3 @@ alias gc='git commit -m '
 alias gp='git push'
 alias ga='git add .'
 
-export PS1='%B%F{51}crys%f %F{15}[%f%F{214}%1d%f%F{15}]%f%b %# '

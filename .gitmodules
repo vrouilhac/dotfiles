@@ -1,0 +1,3 @@
+[submodule "dotfiles-masteos"]
+	path = dotfiles-masteos
+	url = git@github.com:vrouilhac/dotfiles-masteos.git

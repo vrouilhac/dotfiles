@@ -1,9 +1,9 @@
-alias lsa='ls -al'
-alias dotar='tar -cvfz'
-alias untar='tar -xvf'
-alias ztl='cd ~/Documents/zettelkasten && vim'
-alias notes='~/_software/Workflowy/./WorkFlowy-x86_64.AppImage'
-alias g++='g++ --pedantic-errors -Wall -Weffc++ -Wextra -Wsign-conversion -Werror -std=c++17'
+alias lsa='ls -la'
 
-# system alias
-alias getusers="awk -F: '{ print $1 }' /etc/passwd"
+# Git remap
+alias gs='git status'
+alias gc='git commit -m '
+alias gp='git push'
+alias ga='git add .'
+
+export PS1='%B%F{51}crys%f %F{15}[%f%F{214}%1d%f%F{15}]%f%b %# '

@@ -5,4 +5,11 @@ alias gs='git status'
 alias gc='git commit -m '
 alias gp='git push'
 alias ga='git add .'
+alias gpl='git pull'
+alias gstat='git diff --numstat'
 
+# fast cd
+alias jo='cd ~/Documents/perso/organizer/journal && vim'
+alias alf='cd ~/Documents/perso/projects/alfred && tmux'
+alias ca='cd ~/Documents/perso/projects/calistrainer/app/mobile && tmux'
+alias ztl='cd ~/Documents/perso/organizer/zettelkasten && vim'

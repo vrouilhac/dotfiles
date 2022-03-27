@@ -7,6 +7,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'pangloss/vim-javascript'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'jason0x43/vim-js-indent'
+Plug 'leafgarland/typescript-vim'
 Plug 'eliba2/vim-node-inspect'
 Plug 'wakatime/vim-wakatime'
 Plug 'tpope/vim-commentary'
@@ -97,6 +98,10 @@ let b:ale_fixers = ['prettier', 'eslint']
 nnoremap <C-I>s :NodeInspectStart<CR>
 nnoremap <C-I>S :NodeInspectStop<CR>
 nnoremap <C-I>n :NodeInspectStepOver<CR>
+nnoremap <C-I>i :NodeInspectStepInto<CR>
+nnoremap <C-I>b :NodeInspectToggleBreakpoint<CR>
+nnoremap <C-I>RB :NodeInspectRemoveAllBreakpoints<CR>
+nnoremap <C-I>c :NodeInspectRun<CR>
 
 let mapleader = ","
 nnoremap <Leader>n :cn<CR>

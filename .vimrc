@@ -90,9 +90,9 @@ set background=dark		" useful to keeps good colors while using tmux
 set re=0
 colorscheme minimalist
 
-command -nargs=+ VincSearch :silent grep -r "<args>" src 
-nnoremap <Leader>f :VincSearch 
-nnoremap <Leader>F :find src/**/
+" command -nargs=+ VincSearch :silent ! grep -r "<args>" src 
+" nnoremap <Leader>f :VincSearch 
+" nnoremap <Leader>F :find src/**/
 let b:ale_fixers = ['prettier', 'eslint']
 
 nnoremap <C-I>s :NodeInspectStart<CR>
@@ -111,3 +111,59 @@ nnoremap <C-P> :FZF src<CR>
 let g:ale_set_highlights = 0
 let g:ale_sign_error = '😡'
 let g:ale_sign_warning = '😐'
+
+func PrintRegisters()
+  let registers = ['a', 'z', 'e', 'r', 't']
+  for i in registers
+    let reg = getreg(i)
+    echom i . ": " . reg
+  endfor
+endfunc
+
+let mapleader = " "
+nnoremap <Leader>pr :call PrintRegisters()<CR>
+
+" Custom Minimalist Test Search Tool
+
+func GrepSearch(pattern)
+  let value = system("grep -R " . a:pattern . " src")
+  return value
+endfunc
+
+func SplitGrepResults(results)
+  let splitted_results = split(strtrans(a:results), '\^@')
+  let cleanned_results = []
+  for i in splitted_results
+    call add(cleanned_results, split(i, ":")[0])
+  endfor
+  return uniq(cleanned_results)
+endfunc
+
+func PrepareQFList(title, context)
+  return { 'title': a:title, 'context': a:context }
+endfunc
+
+func BuildQFFilenameDictionnary(filename_list)
+  let dictionnary = []
+  for f in a:filename_list
+    let dic = {}
+    let dic.filename = f
+    call add(dictionnary, dic)
+  endfor
+  return dictionnary 
+endfunc
+
+func VincTextSearch(pattern)
+  let grep_value = GrepSearch(a:pattern)
+  let grep_cleanned = SplitGrepResults(grep_value)
+  let qflist_init = PrepareQFList("Search results", { 'cmd': 'grep' })
+  let filenames = BuildQFFilenameDictionnary(grep_cleanned)
+  call setqflist([], ' ', qflist_init)
+  let qfid = getqflist({ 'nr': 0, 'id': 0 }).id
+  call setqflist([], 'r', { 'id': qfid, 'items': filenames })
+  :copen
+endfunc
+
+command -nargs=+ VSearch :call VincTextSearch(<q-args>)
+
+nnoremap <leader>f :VSearch 

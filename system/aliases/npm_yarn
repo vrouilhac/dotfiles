@@ -1,0 +1,8 @@
+alias npmi='npm install'
+alias npmid='npm install --save-dev'
+alias npmig='npm install -g'
+alias npmlg='npm list -g --depth 0'
+
+alias yarna='yarn add'
+alias yarnad='yarn add --dev'
+alias yarnl='yarn link'

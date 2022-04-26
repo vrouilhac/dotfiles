@@ -1,4 +1,5 @@
 source ~/.dotfiles/system/aliases/git
+source ~/.dotfiles/system/aliases/npm_yarn
 
 alias lsa='ls -al'
 alias dotar='tar -cvfz'

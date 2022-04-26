@@ -5,4 +5,5 @@ alias npmlg='npm list -g --depth 0'
 
 alias yarna='yarn add'
 alias yarnad='yarn add --dev'
+alias yarnaprod='yarn install --production'
 alias yarnl='yarn link'

@@ -1,3 +1,5 @@
+source ~/.dotfiles/system/aliases/git
+
 alias lsa='ls -al'
 alias dotar='tar -cvfz'
 alias untar='tar -xvf'

@@ -4,10 +4,14 @@ execute pathogen#infect()
 " Wakatime plugin for stats
 call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-fugitive'
-Plug 'pangloss/vim-javascript'
+" Plug 'pangloss/vim-javascript'
+" Plug 'yuezk/vim-js'
 Plug 'maxmellon/vim-jsx-pretty'
-Plug 'jason0x43/vim-js-indent'
-Plug 'leafgarland/typescript-vim'
+" Plug 'HerringtonDarkholme/yats.vim'
+" Plug 'neoclide/vim-jsx-improve'
+" Plug 'jason0x43/vim-js-indent'
+" Plug 'leafgarland/typescript-vim'
+Plug 'prettier/vim-prettier', { 'do': 'yarn install --frozen-lockfile --production' }
 Plug 'eliba2/vim-node-inspect'
 Plug 'wakatime/vim-wakatime'
 Plug 'tpope/vim-commentary'
@@ -42,6 +46,7 @@ set complete+=k./src/**		" this tells vim to use every files that are avaible un
 set exrc
 
 set statusline={%t}
+set statusline+=%{FugitiveStatusline()}
 set statusline+=\ %m
 set statusline+=\ (%q)
 set statusline+=\ [b:%n]
@@ -85,15 +90,16 @@ nnoremap )Q :copen<CR>
 set suffixesadd+=.js,.ts,.tsx,.jsx    " makes it true only for certain file types ? 
 " set wildignore=
 let mapleader = " "
-nnoremap <Leader>* :nohlsearch<CR>
+nnoremap ,* :nohlsearch<CR>
 set background=dark		" useful to keeps good colors while using tmux
 set re=0
 colorscheme minimalist
 
-command -nargs=+ VincSearch :silent grep -r "<args>" src 
-nnoremap <Leader>f :VincSearch 
-nnoremap <Leader>F :find src/**/
+" command -nargs=+ VincSearch :silent ! grep -r "<args>" src 
+" nnoremap <Leader>f :VincSearch 
+" nnoremap <Leader>F :find src/**/
 let b:ale_fixers = ['prettier', 'eslint']
+let g:ale_fix_on_save = 1
 
 nnoremap <C-I>s :NodeInspectStart<CR>
 nnoremap <C-I>S :NodeInspectStop<CR>
@@ -101,7 +107,7 @@ nnoremap <C-I>n :NodeInspectStepOver<CR>
 nnoremap <C-I>i :NodeInspectStepInto<CR>
 nnoremap <C-I>b :NodeInspectToggleBreakpoint<CR>
 nnoremap <C-I>RB :NodeInspectRemoveAllBreakpoints<CR>
-nnoremap <C-I>c :NodeInspectRun<CR>
+nnoremap <C-I>r :NodeInspectRun<CR>
 
 let mapleader = ","
 nnoremap <Leader>n :cn<CR>
@@ -111,3 +117,21 @@ nnoremap <C-P> :FZF src<CR>
 let g:ale_set_highlights = 0
 let g:ale_sign_error = '😡'
 let g:ale_sign_warning = '😐'
+
+func PrintRegisters()
+  let registers = ['a', 'z', 'e', 'r', 't']
+  for i in registers
+    let reg = getreg(i)
+    echom i . ": " . reg
+  endfor
+endfunc
+
+let mapleader = " "
+nnoremap <Leader>pr :call PrintRegisters()<CR>
+
+" Vim Search Mini
+nnoremap <leader>f :VimSearchMini 
+let g:vsm_default_location = "src"
+nnoremap <leader>* viwy:VimSearchMini <C-R>"
+
+" autocmd BufWritePre *.{js,jsx,ts,tsx} :0,$Prettier

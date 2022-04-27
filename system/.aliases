@@ -1,15 +1,35 @@
 alias lsa='ls -la'
 
 # Git remap
+# Infos
 alias gs='git status'
-alias gc='git commit -m '
-alias gp='git push'
-alias ga='git add .'
-alias gpl='git pull'
 alias gstat='git diff --numstat'
+alias gb='git branch'
+alias gd='git diff'
+alias ggph='git log --graph --decorate --all'
+
+# Stage
+alias ga='git add'
+alias gr='git reset'
+
+# Commits
+alias gc='git commit -v -m '
+alias gca='git commit -v --amend '
+
+# Pushs
+alias gp='git push'
+alias gpu='git push -u origin '
+
+# Get
+alias gpl='git pull'
+alias gf='git fetch --all --prune'
 
 # fast cd
-alias jo='cd ~/Documents/perso/organizer/journal && vim'
 alias alf='cd ~/Documents/perso/projects/alfred && tmux'
-alias ca='cd ~/Documents/perso/projects/calistrainer/app/mobile && tmux'
-alias ztl='cd ~/Documents/perso/organizer/zettelkasten && vim'
+alias ca='cd ~/Documents/perso/projects/calistrainer/ && tmux'
+alias ztl='cd ~/Documents/perso/oldOrganizer/zettelkasten && vim'
+
+# History
+
+alias h='history'
+alias hs='history | grep '

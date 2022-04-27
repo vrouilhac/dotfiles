@@ -4,10 +4,14 @@ execute pathogen#infect()
 " Wakatime plugin for stats
 call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-fugitive'
-Plug 'pangloss/vim-javascript'
+" Plug 'pangloss/vim-javascript'
+" Plug 'yuezk/vim-js'
 Plug 'maxmellon/vim-jsx-pretty'
-Plug 'jason0x43/vim-js-indent'
-Plug 'leafgarland/typescript-vim'
+" Plug 'HerringtonDarkholme/yats.vim'
+" Plug 'neoclide/vim-jsx-improve'
+" Plug 'jason0x43/vim-js-indent'
+" Plug 'leafgarland/typescript-vim'
+Plug 'prettier/vim-prettier', { 'do': 'yarn install --frozen-lockfile --production' }
 Plug 'eliba2/vim-node-inspect'
 Plug 'wakatime/vim-wakatime'
 Plug 'tpope/vim-commentary'
@@ -42,6 +46,7 @@ set complete+=k./src/**		" this tells vim to use every files that are avaible un
 set exrc
 
 set statusline={%t}
+set statusline+=%{FugitiveStatusline()}
 set statusline+=\ %m
 set statusline+=\ (%q)
 set statusline+=\ [b:%n]
@@ -85,7 +90,7 @@ nnoremap )Q :copen<CR>
 set suffixesadd+=.js,.ts,.tsx,.jsx    " makes it true only for certain file types ? 
 " set wildignore=
 let mapleader = " "
-nnoremap <Leader>* :nohlsearch<CR>
+nnoremap ,* :nohlsearch<CR>
 set background=dark		" useful to keeps good colors while using tmux
 set re=0
 colorscheme minimalist
@@ -94,6 +99,7 @@ colorscheme minimalist
 " nnoremap <Leader>f :VincSearch 
 " nnoremap <Leader>F :find src/**/
 let b:ale_fixers = ['prettier', 'eslint']
+let g:ale_fix_on_save = 1
 
 nnoremap <C-I>s :NodeInspectStart<CR>
 nnoremap <C-I>S :NodeInspectStop<CR>
@@ -101,7 +107,7 @@ nnoremap <C-I>n :NodeInspectStepOver<CR>
 nnoremap <C-I>i :NodeInspectStepInto<CR>
 nnoremap <C-I>b :NodeInspectToggleBreakpoint<CR>
 nnoremap <C-I>RB :NodeInspectRemoveAllBreakpoints<CR>
-nnoremap <C-I>c :NodeInspectRun<CR>
+nnoremap <C-I>r :NodeInspectRun<CR>
 
 let mapleader = ","
 nnoremap <Leader>n :cn<CR>
@@ -123,47 +129,9 @@ endfunc
 let mapleader = " "
 nnoremap <Leader>pr :call PrintRegisters()<CR>
 
-" Custom Minimalist Test Search Tool
+" Vim Search Mini
+nnoremap <leader>f :VimSearchMini 
+let g:vsm_default_location = "src"
+nnoremap <leader>* viwy:VimSearchMini <C-R>"
 
-func GrepSearch(pattern)
-  let value = system("grep -R " . a:pattern . " src")
-  return value
-endfunc
-
-func SplitGrepResults(results)
-  let splitted_results = split(strtrans(a:results), '\^@')
-  let cleanned_results = []
-  for i in splitted_results
-    call add(cleanned_results, split(i, ":")[0])
-  endfor
-  return uniq(cleanned_results)
-endfunc
-
-func PrepareQFList(title, context)
-  return { 'title': a:title, 'context': a:context }
-endfunc
-
-func BuildQFFilenameDictionnary(filename_list)
-  let dictionnary = []
-  for f in a:filename_list
-    let dic = {}
-    let dic.filename = f
-    call add(dictionnary, dic)
-  endfor
-  return dictionnary 
-endfunc
-
-func VincTextSearch(pattern)
-  let grep_value = GrepSearch(a:pattern)
-  let grep_cleanned = SplitGrepResults(grep_value)
-  let qflist_init = PrepareQFList("Search results", { 'cmd': 'grep' })
-  let filenames = BuildQFFilenameDictionnary(grep_cleanned)
-  call setqflist([], ' ', qflist_init)
-  let qfid = getqflist({ 'nr': 0, 'id': 0 }).id
-  call setqflist([], 'r', { 'id': qfid, 'items': filenames })
-  :copen
-endfunc
-
-command -nargs=+ VSearch :call VincTextSearch(<q-args>)
-
-nnoremap <leader>f :VSearch 
+" autocmd BufWritePre *.{js,jsx,ts,tsx} :0,$Prettier

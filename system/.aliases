@@ -2,13 +2,4 @@ source ~/.dotfiles/system/aliases/git
 source ~/.dotfiles/system/aliases/npm_yarn
 
 alias lsa='ls -al'
-alias dotar='tar -cvfz'
-alias untar='tar -xvf'
-alias ztl='cd ~/Documents/zettelkasten && vim'
-alias notes='~/_software/Workflowy/./WorkFlowy-x86_64.AppImage'
-alias g++='g++ --pedantic-errors -Wall -Weffc++ -Wextra -Wsign-conversion -Werror -std=c++17'
-
 alias hist='history | grep '
-
-# system alias
-alias getusers="awk -F: '{ print $1 }' /etc/passwd"

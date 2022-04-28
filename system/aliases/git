@@ -1,0 +1,31 @@
+alias g='git'
+
+alias ga='git add'
+alias gaa='git add .'
+
+alias gb='git branch'
+
+alias gc='git commit -v'
+alias gcm='git commit -v -m'
+alias gca='git commit -v --amend'
+
+alias gco='git checkout'
+alias gcob='git checkout -b'
+
+alias gd='git diff'
+alias gdstat='git diff --numstat'
+alias gs='git status'
+
+alias gf='git fetch'
+alias gfa='git fetch --all --prune'
+
+alias gpl='git pull'
+
+alias gp='git push'
+alias gpu='git push --set-upstream origin'
+
+alias gm='git merge'
+
+alias grs='git reset'
+alias grss='git reset --soft'
+alias grsh='git reset --hard'

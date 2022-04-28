@@ -10,4 +10,5 @@ export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 
 # Set terminal vi like
-set -o vi
+# set -o vi
+setopt INC_APPEND_HISTORY

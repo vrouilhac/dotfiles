@@ -12,3 +12,9 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 # Set terminal vi like
 # set -o vi
 setopt INC_APPEND_HISTORY
+
+# Set ls colors
+export CLICOLOR=1
+export LSCOLORS=Gxfxcxdxbxegedabagacad
+
+export MYZSHRC=~/.zshrc

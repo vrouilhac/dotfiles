@@ -1,5 +1,5 @@
 source ~/.dotfiles/system/aliases/git
 source ~/.dotfiles/system/aliases/npm_yarn
 
-alias lsa='ls -al'
+alias lsa='ls -A -1 -G'
 alias hist='history | grep '

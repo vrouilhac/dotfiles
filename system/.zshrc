@@ -30,16 +30,16 @@ export LSCOLORS=Gxfxcxdxbxegedabagacad
 eval "$(zoxide init zsh)"
 
 get_current_branch_name() {
-  git branch 2> /dev/null | sed -n -e 's/^\* \(.*\)/[\1]/p'
+  git branch 2> /dev/null | sed -n -e 's/^\* \(.*\)/[\1] /p'
 }
 
 update_PS1_git() {
-  branch_name=$(get_current_branch_name)
-  export PS1="%f%F{15}%f%F{214}%1d%f%F{15}%f%b $branch_name - "
+  branch_name="$(get_current_branch_name)"
+  export PS1="%f%F{15}%f%F{214}%1d%f%F{15}%f%b $branch_name- "
 }
 
-zz() {
-  z $1
+z() {
+  __zoxide_z "$@"
   update_PS1_git
 }
 

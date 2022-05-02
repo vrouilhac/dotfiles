@@ -38,8 +38,8 @@ update_PS1_git() {
   export PS1="%f%F{15}%f%F{214}%1d%f%F{15}%f%b $branch_name - "
 }
 
-zz() {
-  z $1
+z() {
+  __zoxide_z "$@"
   update_PS1_git
 }
 

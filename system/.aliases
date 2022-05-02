@@ -4,3 +4,4 @@ source ~/.dotfiles/system/aliases/npm_yarn
 alias lsa='ls -A -1 -G'
 alias hist='history | grep '
 alias so='source $MYZSHRC'
+alias history='history 0'

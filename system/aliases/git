@@ -11,9 +11,14 @@ alias gcm='git commit -v -m'
 alias gca='git commit -v --amend'
 
 alias gco='git checkout'
+gcoa() {
+  branch=$(git branch | grep $1 | sed 's/ *//g') 
+  git checkout $branch
+}
 alias gcob='git checkout -b'
 
 alias gd='git diff'
+alias gdc='git diff --compact-summary'
 alias gdstat='git diff --numstat'
 alias gs='git status'
 

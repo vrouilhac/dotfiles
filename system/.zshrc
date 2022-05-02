@@ -18,3 +18,7 @@ setopt INC_APPEND_HISTORY
 # Set ls colors
 export CLICOLOR=1
 export LSCOLORS=Gxfxcxdxbxegedabagacad
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+eval "$(zoxide init zsh)"
+

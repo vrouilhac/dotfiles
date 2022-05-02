@@ -1,3 +1,5 @@
+export MYZSHRC=~/.zshrc
+
 source ~/.dotfiles/system/.aliases
 source ~/.dotfiles/dotfiles-masteos/system/.aliases
 source ~/.dotfiles/dotfiles-ocf/system/.aliases
@@ -16,5 +18,3 @@ setopt INC_APPEND_HISTORY
 # Set ls colors
 export CLICOLOR=1
 export LSCOLORS=Gxfxcxdxbxegedabagacad
-
-export MYZSHRC=~/.zshrc

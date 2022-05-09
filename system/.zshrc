@@ -50,3 +50,5 @@ gcoa() {
   git checkout $branch
   update_PS1_git
 }
+
+set -o vi

@@ -5,3 +5,7 @@ set keymap vi-insert
 "\C-p":history-search-backward
 "\C-n":history-search-forward
 
+set -o vi
+set show-mode-in-prompt on
+set vi-ins-mode-string "I"
+set vi-cmd-mode-string "C"

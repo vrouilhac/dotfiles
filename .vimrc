@@ -3,15 +3,22 @@ execute pathogen#infect()
 
 call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-fugitive'
-Plug 'maxmellon/vim-jsx-pretty'
-Plug 'prettier/vim-prettier', { 'do': 'yarn install --frozen-lockfile --production' }
-Plug 'eliba2/vim-node-inspect'
-Plug 'wakatime/vim-wakatime'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-surround'
+
+Plug 'pangloss/vim-javascript'
+Plug 'leafgarland/typescript-vim'
+Plug 'maxmellon/vim-jsx-pretty'
+Plug 'jparise/vim-graphql'
+
+Plug 'prettier/vim-prettier', { 'do': 'yarn install --frozen-lockfile --production' }
+
+Plug 'eliba2/vim-node-inspect'
+
+Plug 'wakatime/vim-wakatime'
 Plug 'dense-analysis/ale'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'adelarsq/vim-matchit'
-Plug 'tpope/vim-surround'
 Plug 'airblade/vim-gitgutter'
 call plug#end()
 
@@ -20,6 +27,7 @@ syntax on			" enables syntax color
 
 set number 			" show each line it's number in the margin
 set numberwidth=6		" set the size of the margin
+set cmdheight=2
 set relativenumber		" set line number relative to cursor line
 set incsearch			" while searching pattern is highlighted
 set autoindent			" keeps current indententation when going on next line
@@ -41,18 +49,52 @@ set undodir="~/.vim/undo_dir"	" precise location dir of undofiles
 set complete+=k./src/**		" this tells vim to use every files that are avaible under src for it's autocomplete feature
 set exrc
 set cursorline
+set smartcase
 
 set foldmethod=indent
 set foldlevelstart=20
 
 set noshowmode
 
-set statusline={%t}
-set statusline+=%{FugitiveStatusline()}
-set statusline+=\ %m
-set statusline+=\ (%q)
-set statusline+=\ [b:%n]
-set statusline+=\ `%L`
+func! GitBranch()
+  return system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
+endfunc
+
+func! StatuslineGit()
+  let l:branchname = GitBranch()
+  return strlen(l:branchname) > 0?'  '.l:branchname.' ':''
+endfunc
+
+func! System(string)
+  return substitute(system(a:string), '\n', '', 'g')
+endfunc
+
+func! GetPath()
+  let l:path = split(System("pwd"), "/")
+  let l:final_path = l:path[len(l:path) - 1]
+  return l:final_path
+endfun
+
+autocmd ColorScheme *
+      \ hi MYLineNumbers term=bold ctermfg=181 ctermbg=236 |
+      \ hi MYBufferNumber term=bold ctermfg=234 ctermbg=181 |
+      \ hi MYGitBranch term=bold ctermfg=234 ctermbg=251 |
+      \ hi MYModified term=bold ctermfg=208 ctermbg=236 |
+      \ hi MYNormal term=bold ctermfg=253 ctermbg=236
+
+set statusline=
+set statusline+=%#MYGitBranch#
+set statusline+=%{StatuslineGit()}
+set statusline+=%#MYNormal#
+set statusline+=\ 
+set statusline+=[%{GetPath()}\ ->\ %t]
+set statusline+=%#MYModified#
+set statusline+=\ %m\ 
+set statusline+=%#MYBufferNumber#
+set statusline+=\ b:%n\ 
+set statusline+=%#MYLineNumbers#
+set statusline+=\ %l/%L\ 
+set statusline+=%#MYNormal#
 
 " put the character under curstor to uppercase or lowercase (invert the current case)
 nnoremap ,u ~
@@ -67,6 +109,7 @@ nnoremap <C-L> $
 
 iabbrev logs console.log("
 iabbrev logo console.log({
+iabbrev fn function
 nnoremap <C-F> /
 
 " netrw
@@ -134,11 +177,17 @@ nnoremap <leader>* viwy:VimSearchMini <C-R>"
 
 augroup netrw_mapping
   autocmd!
-  autocmd filetype netrw call NetrwMappings()
+  autocmd filetype netrw call Netrw_mappings()
 augroup END
 
-func NetrwMappings()
-  nnoremap <buffer> o <cr>
+func Netrw_mappings()
+  nnoremap <buffer>% :call CreateNewFile()<CR>
+endfunc
+
+func CreateNewFile()
+  let l:filename = input("Enter file name: ")
+  execute 'silent !touch ' . b:netrw_curdir . "/" . l:filename
+  redraw!
 endfunc
 
 nnoremap ,s :so $MYVIMRC<CR>
@@ -155,3 +204,8 @@ endif
 
 nnoremap ,X :call popup_atcursor("Bonjour", #{pos:'botleft',line:'cursor-1',col:'cursor',moved: 'WORD'})<CR>
 
+
+
+" Plugin configuraion
+" panglose/javascript
+let g:javascript_plugin_jsdoc = 1

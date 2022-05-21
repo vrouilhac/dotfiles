@@ -29,29 +29,16 @@ alias gpl='git pull'
 
 alias gp='git push'
 alias gpu='git push --set-upstream origin'
+alias gpf='git push --force-with-lease'
 
 alias gm='git merge'
+
+alias grb='git rebase '
+alias grbi='git rebase -i '
 
 alias grs='git reset'
 alias grss='git reset --soft'
 alias grsh='git reset --hard'
 
-gl() {
-  echo "What kind of log ?"
-  echo "\t 1 - stats graph"
-  echo "\t 2 - custom"
-
-  read choice
-
-  case $choice in
-    1)
-    git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset' --stat
-    ;;
-    2)
-      git log --graph --pretty='%h %Cred%<(20)%an%Creset %Cgreen%s%Creset'
-    ;;
-    *)
-    exit 1
-    ;;
-  esac
-}
+alias gl='git log'
+alias glo='git log --oneline'

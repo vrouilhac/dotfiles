@@ -1,6 +1,8 @@
 " Use Tim Pope pathogen plugin https://github.com/tpope/vim-pathogen
 execute pathogen#infect()
 
+set nocompatible
+
 call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary'
@@ -25,6 +27,7 @@ call plug#end()
 filetype plugin indent on	" enables detection of filetype and indent including those inside plugins
 syntax on			" enables syntax color
 
+set mouse=a
 set number 			" show each line it's number in the margin
 set numberwidth=6		" set the size of the margin
 set cmdheight=2
@@ -35,8 +38,8 @@ set path+=**;/src		" allow tools using path to search downward (ONLY DIRECTORIES
 set shiftwidth=2		" set the width for indent << >>
 set softtabstop=2		" set width of a tab
 set wrap			" split (visually) lengthy lines
-set linebreak			" if line is too long breaks it
-set textwidth=80		" maximum number of character before line breaks
+" set linebreak			" if line is too long breaks it
+" set textwidth=80		" maximum number of character before line breaks
 " set wildmenu			" when using completion will show matching in small popup (go on ztl & run :e ar and press Tab)
 " set wildmode=list:full		" use a list to show completion from popup (full is used because wildmenu needs it)
 set hlsearch			" highlight search patterns
@@ -56,24 +59,19 @@ set foldlevelstart=20
 
 set noshowmode
 
-func! GitBranch()
-  return system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
-endfunc
+" func! GitBranch()
+"   let l:raw_git_branch = system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
+"   return l:raw_git_branch
+" endfunc
 
-func! StatuslineGit()
-  let l:branchname = GitBranch()
-  return strlen(l:branchname) > 0?'  '.l:branchname.' ':''
-endfunc
-
-func! System(string)
-  return substitute(system(a:string), '\n', '', 'g')
-endfunc
-
-func! GetPath()
-  let l:path = split(System("pwd"), "/")
-  let l:final_path = l:path[len(l:path) - 1]
-  return l:final_path
-endfun
+" function! StatuslineGit(...) abort
+"   let l:branchname = GitBranch()
+"   if strlen(l:branchname) > 0
+"     return join(['  ', l:branchname, ' '])
+"   elseif
+"     return ''
+"   endif
+" endfunction
 
 autocmd ColorScheme *
       \ hi MYLineNumbers term=bold ctermfg=181 ctermbg=236 |
@@ -84,10 +82,11 @@ autocmd ColorScheme *
 
 set statusline=
 set statusline+=%#MYGitBranch#
-set statusline+=%{StatuslineGit()}
+" set statusline+=%{StatuslineGit()}
+set statusline+=%{FugitiveStatusline()}
 set statusline+=%#MYNormal#
 set statusline+=\ 
-set statusline+=[%{GetPath()}\ ->\ %t]
+set statusline+=[%t]
 set statusline+=%#MYModified#
 set statusline+=\ %m\ 
 set statusline+=%#MYBufferNumber#
@@ -109,7 +108,10 @@ nnoremap <C-L> $
 
 iabbrev logs console.log("
 iabbrev logo console.log({
-iabbrev fn function
+iabbrev fn function () {}
+iabbrev =>() const = () => {};
+iabbrev map* arr.map((key: any) => {});
+
 nnoremap <C-F> /
 
 " netrw
@@ -209,3 +211,11 @@ nnoremap ,X :call popup_atcursor("Bonjour", #{pos:'botleft',line:'cursor-1',col:
 " Plugin configuraion
 " panglose/javascript
 let g:javascript_plugin_jsdoc = 1
+
+" ale
+let g:ale_hover_to_preview=1
+let g:ale_hover_to_floating_preview=1
+let g:ale_floating_preview=1
+let g:ale_floating_window_border=['│', '─', '╭', '╮', '╯', '╰']
+
+nnoremap ,i :ALEHover<CR>

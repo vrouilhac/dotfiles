@@ -2,6 +2,27 @@ source ~/.dotfiles/system/aliases/git
 source ~/.dotfiles/system/aliases/npm_yarn
 
 alias lsa='ls -A -1 -G'
-alias hist='history | grep '
 alias so='source $MYZSHRC'
 alias history='history 0'
+alias hist='history 0 | grep '
+set -H
+re() {
+  ^$1^$2^
+}
+radb() {
+  if [[ -z "$1" ]]
+  then
+    FROM=3000 
+  else
+    FROM=$1
+  fi
+
+  if [[ -z "$2" ]]
+  then
+    TO=3000
+  else
+    TO=$2
+  fi
+
+  adb reverse "tcp:${FROM}" "tcp:${TO}"
+}

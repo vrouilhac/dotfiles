@@ -22,6 +22,8 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 # set -o vi
 setopt INC_APPEND_HISTORY
 
+export HISTFILESIZE=1000000
+
 # Set ls colors
 export CLICOLOR=1
 export LSCOLORS=Gxfxcxdxbxegedabagacad

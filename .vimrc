@@ -108,7 +108,6 @@ nnoremap <C-L> $
 
 iabbrev logs console.log("
 iabbrev logo console.log({
-iabbrev fn function () {}
 iabbrev =>() const = () => {};
 iabbrev map* arr.map((key: any) => {});
 

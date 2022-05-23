@@ -54,3 +54,5 @@ gcoa() {
 }
 
 set -o vi
+
+source ~/.dotfiles/system/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh

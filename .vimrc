@@ -17,6 +17,8 @@ Plug 'prettier/vim-prettier', { 'do': 'yarn install --frozen-lockfile --producti
 
 Plug 'eliba2/vim-node-inspect'
 
+Plug 'stephpy/vim-yaml'
+
 Plug 'wakatime/vim-wakatime'
 Plug 'dense-analysis/ale'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -27,10 +29,10 @@ call plug#end()
 filetype plugin indent on	" enables detection of filetype and indent including those inside plugins
 syntax on			" enables syntax color
 
-set mouse=a
+set mouse=a			" enable mouse 'better to be a warior in a garden than a gardener in a war'
 set number 			" show each line it's number in the margin
 set numberwidth=6		" set the size of the margin
-set cmdheight=2
+set cmdheight=2			" the size of the cmd, 2 make your powerful
 set relativenumber		" set line number relative to cursor line
 set incsearch			" while searching pattern is highlighted
 set autoindent			" keeps current indententation when going on next line
@@ -38,8 +40,6 @@ set path+=**;/src		" allow tools using path to search downward (ONLY DIRECTORIES
 set shiftwidth=2		" set the width for indent << >>
 set softtabstop=2		" set width of a tab
 set wrap			" split (visually) lengthy lines
-" set linebreak			" if line is too long breaks it
-" set textwidth=80		" maximum number of character before line breaks
 " set wildmenu			" when using completion will show matching in small popup (go on ztl & run :e ar and press Tab)
 " set wildmode=list:full		" use a list to show completion from popup (full is used because wildmenu needs it)
 set hlsearch			" highlight search patterns
@@ -48,7 +48,10 @@ set incsearch			" move the cursor to search that match the pattern as typing it
 set scrolloff=8			" number of lines to keep above/below cursor
 set laststatus=2		" allows to always show the statusline
 set undofile			" enable the save of undo history under a undofile
-set undodir="~/.vim/undo_dir"	" precise location dir of undofiles
+set undodir=~/.vim/undo_dir	" precise location dir of undofiles
+set backup
+set backupdir=~/.vim/backup_dir
+set noswapfile
 set complete+=k./src/**		" this tells vim to use every files that are avaible under src for it's autocomplete feature
 set exrc
 set cursorline
@@ -58,20 +61,6 @@ set foldmethod=indent
 set foldlevelstart=20
 
 set noshowmode
-
-" func! GitBranch()
-"   let l:raw_git_branch = system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
-"   return l:raw_git_branch
-" endfunc
-
-" function! StatuslineGit(...) abort
-"   let l:branchname = GitBranch()
-"   if strlen(l:branchname) > 0
-"     return join(['  ', l:branchname, ' '])
-"   elseif
-"     return ''
-"   endif
-" endfunction
 
 autocmd ColorScheme *
       \ hi MYLineNumbers term=bold ctermfg=181 ctermbg=236 |
@@ -97,6 +86,7 @@ set statusline+=%#MYNormal#
 
 " put the character under curstor to uppercase or lowercase (invert the current case)
 nnoremap ,u ~
+vnoremap ,u ~
 
 " mapping to scroll faster the screen
 nnoremap <C-J> 7j
@@ -106,6 +96,7 @@ vnoremap <C-K> 7k
 nnoremap <C-H> ^
 nnoremap <C-L> $
 
+" TODO: put these is au group and filetype js.ts...
 iabbrev logs console.log("
 iabbrev logo console.log({
 iabbrev =>() const = () => {};
@@ -204,8 +195,6 @@ if version >= 700
 endif
 
 nnoremap ,X :call popup_atcursor("Bonjour", #{pos:'botleft',line:'cursor-1',col:'cursor',moved: 'WORD'})<CR>
-
-
 
 " Plugin configuraion
 " panglose/javascript

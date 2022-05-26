@@ -1,0 +1,5 @@
+#compdef gbd
+
+local -a git_branches
+git_branches=$(git branch)
+_describe 'command' git_branches

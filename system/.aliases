@@ -2,7 +2,13 @@ source ~/.dotfiles/system/aliases/git
 source ~/.dotfiles/system/aliases/npm_yarn
 
 alias lsa='ls -A -1 -G'
-alias so='source $MYZSHRC'
+so() {
+  source $MYZSHRC
+  echo "zshrc reloaded!"
+}
+soh() {
+  exec $SHELL
+}
 alias history='history 0'
 alias hist='history 0 | grep '
 set -H

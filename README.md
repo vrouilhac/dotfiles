@@ -6,11 +6,38 @@ Do not install xD
 
 ## Tools
 
-- Tmux
-- Git
+<details>
+<summary>Programming</summary>
+
 - NodeJS
-- NPM
 - Typescript
-- Vim
 - Rust
-- Docker
+
+</details>
+
+<details>
+<summary>terminal</summary>
+
+- tmux
+- git
+- npm
+- yarn
+- cargo
+- create-react-app
+- glow
+- heroku
+- prettier
+- zoxide
+
+</details>
+
+<details>
+<summary>Other</summary>
+
+- docker
+- docker-compose
+- mongodb
+- postgreSQL
+- Vim (Plug, Pathogen)
+
+</details>

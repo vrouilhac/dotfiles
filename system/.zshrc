@@ -1,8 +1,23 @@
 export MYZSHRC=~/.zshrc
 
+get_current_branch_name() {
+  git branch 2> /dev/null | sed -n -e 's/^\* \(.*\)/[\1] /p'
+}
+
+update_PS1_git() {
+  branch_name="$(get_current_branch_name)"
+  export PS1="%f%F{15}%f%F{214}%1d%f%F{15}%f%b $branch_name- "
+}
+
 source ~/.dotfiles/system/.aliases
 source ~/.dotfiles/dotfiles-masteos/system/.aliases
 source ~/.dotfiles/dotfiles-ocf/system/.aliases
+
+source ~/.dotfiles/system/zsh/.autocomplete.zsh
+
+# enable autocompletion
+autoload -U compinit
+compinit
 
 # export PS1='%B%F{51}crys%f %F{15}[%f%F{214}%1d%f%F{15}]%f%b %# '
 # get_current_branch_name() {
@@ -22,6 +37,7 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 # set -o vi
 setopt INC_APPEND_HISTORY
 
+
 export HISTFILESIZE=1000000
 
 # Set ls colors
@@ -31,14 +47,7 @@ export LSCOLORS=Gxfxcxdxbxegedabagacad
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 eval "$(zoxide init zsh)"
 
-get_current_branch_name() {
-  git branch 2> /dev/null | sed -n -e 's/^\* \(.*\)/[\1] /p'
-}
 
-update_PS1_git() {
-  branch_name="$(get_current_branch_name)"
-  export PS1="%f%F{15}%f%F{214}%1d%f%F{15}%f%b $branch_name- "
-}
 
 z() {
   __zoxide_z "$@"
@@ -47,12 +56,10 @@ z() {
 
 update_PS1_git
 
-gcoa() {
-  branch=$(git branch | grep $1 | sed 's/ *//g') 
-  git checkout $branch
-  update_PS1_git
-}
-
 set -o vi
 
-source ~/.dotfiles/system/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+# source ~/.dotfiles/system/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+
+# source ~/.dotfiles/system/zsh/antigen.zsh
+

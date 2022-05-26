@@ -14,8 +14,12 @@ alias gco='git checkout'
 gcoa() {
   branch=$(git branch | grep $1 | sed 's/ *//g') 
   git checkout $branch
+  update_PS1_git
 }
-alias gcob='git checkout -b'
+gcob() {
+  git checkout -b $1
+  update_PS1_git
+}
 
 alias gd='git diff'
 alias gdc='git diff --compact-summary'

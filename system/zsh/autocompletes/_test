@@ -1,0 +1,5 @@
+#compdef test
+
+local -a opts
+opts=('c:description of the command', 'd:description for d command')
+_describe 'test' opts

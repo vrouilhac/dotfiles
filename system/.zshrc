@@ -56,3 +56,18 @@ gcoa() {
 set -o vi
 
 source ~/.dotfiles/system/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+
+# Work in progress
+
+dl() {
+	local filename
+
+	if [[ -z $2 ]]; then
+		filename="untitled.txt"
+	else
+		filename=$2
+	fi
+
+	curl -s $1 > $filename
+}

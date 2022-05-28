@@ -1,0 +1,11 @@
+dl() {
+	local filename
+
+	if [[ -z $2 ]]; then
+		filename="untitled.txt"
+	else
+		filename=$2
+	fi
+
+	curl -s $1 > $filename
+}

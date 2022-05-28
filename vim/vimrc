@@ -114,6 +114,7 @@ let g:netrw_browse_split=0
 let g:netrw_banner=0
 
 " ~~~ Plugin Mappings ~~~
+let mapleader=" "
 " FZF
 nnoremap <leader>bo :Buffers<CR>
 nnoremap <leader>hi :History<CR>
@@ -137,7 +138,6 @@ nnoremap <leader>sh :GitGutterStageHunk<CR>
 nnoremap <leader>uh :GitGutterUndoHunk<CR>
 
 " ~~~ Mappings ~~~
-let mapleader=" "
 nnoremap <leader>so :source $MYVIMRC<CR>
 nnoremap <leader>v :e $MYVIMRC<CR>
 

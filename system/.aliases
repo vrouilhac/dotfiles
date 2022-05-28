@@ -1,14 +1,11 @@
-source ~/.dotfiles/system/aliases/git
-source ~/.dotfiles/system/aliases/npm_yarn
+source $MYDOTFILES/system/aliases/git
+source $MYDOTFILES/system/aliases/npm_yarn
+source $MYDOTFILES/system/aliases/common
+source $MYDOTFILES/system/aliases/curl
+source $MYDOTFILES/system/aliases/tmux
 
-alias lsa='ls -A -1 -G'
-alias so='source $MYZSHRC'
-alias history='history 0'
-alias hist='history 0 | grep '
 set -H
-re() {
-  ^$1^$2^
-}
+
 radb() {
   if [[ -z "$1" ]]
   then

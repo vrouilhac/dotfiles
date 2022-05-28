@@ -4,7 +4,7 @@
 
 Do not install xD
 
-## Tools
+## Full setup requirements
 
 - Tmux
 - Git
@@ -14,3 +14,4 @@ Do not install xD
 - Vim
 - Rust
 - Docker
+- fzf

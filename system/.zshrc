@@ -1,35 +1,23 @@
 export MYZSHRC=~/.zshrc
+export MYDOTFILES=~/.dotfiles
 
-source ~/.dotfiles/system/.aliases
-source ~/.dotfiles/dotfiles-masteos/system/.aliases
-source ~/.dotfiles/dotfiles-ocf/system/.aliases
-
-# export PS1='%B%F{51}crys%f %F{15}[%f%F{214}%1d%f%F{15}]%f%b %# '
-# get_current_branch_name() {
-#   ls_result=$(ls -a)
-#   if [[ $ls_result =~ ".git " ]]
-#   then
-#     echo $(git rev-parse --abbrev-ref HEAD)
-#   fi
-# }
-export ANDROID_HOME=$HOME/Library/Android/sdk
-export PATH=$PATH:$ANDROID_HOME/emulator
-export PATH=$PATH:$ANDROID_HOME/tools
-export PATH=$PATH:$ANDROID_HOME/tools/bin
-export PATH=$PATH:$ANDROID_HOME/platform-tools
-
-# Set terminal vi like
-# set -o vi
-setopt INC_APPEND_HISTORY
-
-export HISTFILESIZE=1000000
-
-# Set ls colors
-export CLICOLOR=1
-export LSCOLORS=Gxfxcxdxbxegedabagacad
-
+# init zoxide
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 eval "$(zoxide init zsh)"
+
+source $MYDOTFILES/system/.exports
+source $MYDOTFILES/system/.aliases
+source $MYDOTFILES/dotfiles-masteos/system/.aliases
+source $MYDOTFILES/dotfiles-ocf/system/.aliases
+
+source $MYDOTFILES/system/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# enable autocompletion
+autoload -U compinit
+compinit
+
+# Work in progress
+setopt INC_APPEND_HISTORY
 
 get_current_branch_name() {
   git branch 2> /dev/null | sed -n -e 's/^\* \(.*\)/[\1] /p'
@@ -54,20 +42,3 @@ gcoa() {
 }
 
 set -o vi
-
-source ~/.dotfiles/system/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-
-
-# Work in progress
-
-dl() {
-	local filename
-
-	if [[ -z $2 ]]; then
-		filename="untitled.txt"
-	else
-		filename=$2
-	fi
-
-	curl -s $1 > $filename
-}

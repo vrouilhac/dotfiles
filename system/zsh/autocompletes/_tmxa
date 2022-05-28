@@ -1,0 +1,5 @@
+#compdef tmxa
+
+local -a tmux-session
+tmux_sessions=(tmux ls | cut -d : -f 1)
+_describe "command" tmux_sessions

@@ -6,11 +6,11 @@
                                                                          
 " Summary
 "		- Settings.......................16
-"		- Plugins........................70
-"		- Plugin Settings................91
-"		- Plugin Mappings...............115
-"		- Mappings......................138
-"		- Autocommands..................169
+"		- Plugins........................71
+"		- Plugin Settings................92
+"		- Plugin Mappings...............116
+"		- Mappings......................139
+"		- Autocommands..................170
 
 
 " ~~~ Settings ~~~
@@ -28,7 +28,8 @@ set colorcolumn=80
 set autoindent
 set signcolumn=yes
 set nowrap
-set tabstop=2 softtabstop=2
+set tabstop=2
+set softtabstop=2
 set shiftwidth=2
 set noswapfile
 set nobackup

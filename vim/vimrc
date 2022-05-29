@@ -7,10 +7,10 @@
 " Summary
 "		- Settings.......................16
 "		- Plugins........................71
-"		- Plugin Settings................92
-"		- Plugin Mappings...............116
-"		- Mappings......................139
-"		- Autocommands..................170
+"		- Plugin Settings................93
+"		- Plugin Mappings...............117
+"		- Mappings......................140
+"		- Autocommands..................171
 
 
 " ~~~ Settings ~~~
@@ -73,6 +73,7 @@ set statusline+=%#MYNormal#
 call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
 Plug 'adelarsq/vim-matchit'
 
 Plug 'gruvbox-community/gruvbox'

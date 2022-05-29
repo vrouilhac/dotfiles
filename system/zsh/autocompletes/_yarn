@@ -2,7 +2,7 @@
 
 local -a yarn_commands
 
-if [[ -r "./package.json" ]]; then
+if [[ -r "$(pwd)/package.json" ]]; then
 	local avaible_cmds=$(grep "" package.json | tr "\n" "£" | sed 's/[[:space:]]//g' | sed 's/.*\("scripts":{£\)\([^}]*\).*/\2/' | tr "£" "\n" | sed 's/^[^"]*"\([^"]*\).*$/\1/g')
 	yarn_commands=()
 	for i in $(echo $avaible_cmds)

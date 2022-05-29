@@ -10,10 +10,11 @@ source $MYDOTFILES/system/.aliases
 source $MYDOTFILES/dotfiles-masteos/system/.aliases
 source $MYDOTFILES/dotfiles-ocf/system/.aliases
 
+source $MYDOTFILES/system/zsh/.autocomplete.zsh
 source $MYDOTFILES/system/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # enable autocompletion
-autoload -U compinit
+autoload -Uz compinit
 compinit
 
 # Work in progress

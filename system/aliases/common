@@ -7,3 +7,7 @@ so() {
 	source $MYZSHRC
 	echo 'zsh reloaded!'
 }
+
+z() {
+  __zoxide_z "$@"
+}

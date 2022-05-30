@@ -172,11 +172,11 @@ nnoremap <leader>Q :copen<CR>
 augroup vrouilhac
 	autocmd!
 	autocmd FileType 
-				\ javascript,
-				\ typescript,
-				\ javascriptreact,
-				\ typescriptreact 
-				\ set suffixesadd+=.js,.ts,.tsx,.jsx
+				\javascript,
+				\typescript,
+				\javascriptreact,
+				\typescriptreact 
+				\set suffixesadd+=.js,.ts,.tsx,.jsx
 augroup END
 " augroup vrouilhac
 " 	autocmd!

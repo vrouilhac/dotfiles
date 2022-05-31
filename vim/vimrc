@@ -5,13 +5,12 @@
 "   \_/ |_|  \___/ \__,_|_|_|_| |_|\__,_|\___|   \_/ |_|_| |_| |_|_|  \___|
                                                                          
 " Summary
-"		- Settings.......................16
-"		- Plugins........................71
-"		- Plugin Settings................93
-"		- Plugin Mappings...............117
-"		- Mappings......................140
-"		- Autocommands..................171
-
+"		- Settings.......................15
+"		- Plugins........................72
+"		- Plugin Settings................95
+"		- Plugin Mappings...............121
+"		- Mappings......................146
+"		- Autocommands..................176
 
 " ~~~ Settings ~~~
 filetype plugin indent on	
@@ -43,6 +42,8 @@ set laststatus=2
 set re=0
 set cursorline
 set background=dark
+set foldmethod=indent
+set foldlevelstart=20
 
 set mouse=a
 
@@ -88,14 +89,17 @@ Plug 'airblade/vim-gitgutter'
 Plug 'wakatime/vim-wakatime'
 
 Plug 'vrouilhac/vim-search-mini'
+Plug 'vrouilhac/vim-zettelkasten'
 call plug#end()
 
 " ~~~ Plugin Settings ~~~
 " gruvbox
+let g:gruvbox_contrast_dark='hard'
 colorscheme gruvbox
 highlight Normal guibg=none
 
 " ale
+let g:ale_fixers = ['prettier', 'eslint']
 let g:ale_fix_on_save = 1
 let g:ale_hover_to_preview=1
 let g:ale_hover_to_floating_preview=1
@@ -119,7 +123,8 @@ let mapleader=" "
 " FZF
 nnoremap <leader>bo :Buffers<CR>
 nnoremap <leader>hi :History<CR>
-nnoremap <C-P> :GFiles<CR>
+nnoremap <C-P> :Files<CR>
+nnoremap <leader>gs :GFiles?<CR>
 
 " vim-search-mini
 nnoremap <leader>f :VimSearchMini 
@@ -156,8 +161,8 @@ nnoremap <leader>p "+p
 vnoremap <leader>y "+y
 vnoremap <leader>p "+p
 
-nnoremap ,u ~
-vnoremap ,u ~
+nnoremap <leader>u ~
+vnoremap <leader>u ~
 
 nnoremap zz za
 nnoremap ZZ zA

@@ -17,3 +17,6 @@ export MYOMZSH=~/.oh-my-zsh
 # ZSH_THEME=fino-time
 # ZSH_THEME=rkj-repos
 ZSH_THEME=jovial
+
+# FZF (+vim plugin)
+export FZF_DEFAULT_COMMAND='rg --follow --hidden --files'

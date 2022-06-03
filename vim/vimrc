@@ -71,12 +71,16 @@ set statusline+=%#MYNormal#
 
 " ~~~ Plugins ~~~
 
+" used to load tests project
+execute pathogen#infect()
+
 call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'adelarsq/vim-matchit'
 
+" Plug 'wadackel/vim-dogrun'
 Plug 'gruvbox-community/gruvbox'
 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -99,7 +103,12 @@ colorscheme gruvbox
 highlight Normal guibg=none
 
 " ale
-let g:ale_fixers = ['prettier', 'eslint']
+let g:ale_fixers = {
+	\ 'javascript': ['prettier', 'eslint'],
+	\ 'rust': ['rls', 'rust-analysis'],
+	\ 'go': ['gofmt', 'golint', 'gopls', 'govet'],
+	\ 'zsh': ['shell']
+	\ }
 let g:ale_fix_on_save = 1
 let g:ale_hover_to_preview=1
 let g:ale_hover_to_floating_preview=1
@@ -141,7 +150,7 @@ nnoremap <leader>gh :GitGutterLineHighlightsToggle<CR>
 nnoremap <leader>nh :GitGutterNextHunk<CR>
 nnoremap <leader>ph :GitGutterPrevHunk<CR>
 nnoremap <leader>sh :GitGutterStageHunk<CR>
-nnoremap <leader>uh :GitGutterUndoHunk<CR>
+nnoremap <leader>guh :GitGutterUndoHunk<CR>
 
 " ~~~ Mappings ~~~
 nnoremap <leader>so :source $MYVIMRC<CR>
@@ -157,9 +166,9 @@ vnoremap <C-H> ^
 vnoremap <C-L> $
 
 nnoremap <leader>y "+y
-nnoremap <leader>p "+p
+nnoremap <leader>pa "+p
 vnoremap <leader>y "+y
-vnoremap <leader>p "+p
+vnoremap <leader>pa "+p
 
 nnoremap <leader>u ~
 vnoremap <leader>u ~

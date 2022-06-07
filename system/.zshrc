@@ -26,3 +26,7 @@ fd() {
   preview="git diff $@ --color=always -- {-1}"
   git diff $@ --name-only | fzf -m --ansi --preview $preview
 }
+
+
+# DRAFT DO NOT KEEP THAT S
+alias ftg='grep "#" data/* | sed "s/^[^#]*\(#.*\)/\1/" | tr " " "\n" | sort | uniq | fzf'

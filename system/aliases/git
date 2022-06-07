@@ -3,7 +3,7 @@ alias g='git'
 alias ga='git add'
 alias gaa='git add .'
 
-alias gb='git branch'
+alias gb='git branch | tee'
 alias gbd='git branch -d '
 
 alias gc='git commit -v'
@@ -40,5 +40,24 @@ alias grs='git reset'
 alias grss='git reset --soft'
 alias grsh='git reset --hard'
 
+alias grv='git revert'
+alias grvc='git revert --continue'
+alias grvs='git revert --skip'
+alias grva='git revert --abort'
+alias grvnc='git revert --no-commit'
+grvnch () {
+	grvnc $1..HEAD
+	gs
+}
+
 alias gl='git log'
 alias glo='git log --oneline'
+
+alias gwa='git worktree add -b '
+alias gwl='git worktree list'
+alias gwm='git worktree move'
+gwrm() {
+	if git worktree remove $1; then
+		git worktree prune
+	fi
+}

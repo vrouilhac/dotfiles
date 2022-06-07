@@ -3,6 +3,7 @@ source $MYDOTFILES/system/aliases/npm_yarn
 source $MYDOTFILES/system/aliases/common
 source $MYDOTFILES/system/aliases/curl
 source $MYDOTFILES/system/aliases/tmux
+source $MYDOTFILES/system/aliases/brew
 
 set -H
 

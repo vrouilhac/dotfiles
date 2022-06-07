@@ -105,6 +105,9 @@ highlight Normal guibg=none
 " ale
 let g:ale_fixers = {
 	\ 'javascript': ['prettier', 'eslint'],
+	\ 'typescript': ['prettier', 'eslint'],
+	\ 'typescriptreact': ['prettier', 'eslint'],
+	\ 'javascriptreact': ['prettier', 'eslint'],
 	\ 'rust': ['rls', 'rust-analysis'],
 	\ 'go': ['gofmt', 'golint', 'gopls', 'govet'],
 	\ 'zsh': ['shell']
@@ -191,6 +194,7 @@ augroup vrouilhac
 				\javascriptreact,
 				\typescriptreact 
 				\set suffixesadd+=.js,.ts,.tsx,.jsx
+	autocmd BufNewFile,BufRead *.ejs set filetype=html
 augroup END
 " augroup vrouilhac
 " 	autocmd!

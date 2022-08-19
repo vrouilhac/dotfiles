@@ -24,3 +24,5 @@ radb() {
 
   adb reverse "tcp:${FROM}" "tcp:${TO}"
 }
+
+alias vim='nvim'

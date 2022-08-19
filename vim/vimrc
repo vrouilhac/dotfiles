@@ -94,11 +94,15 @@ Plug 'wakatime/vim-wakatime'
 
 Plug 'vrouilhac/vim-search-mini'
 Plug 'vrouilhac/vim-zettelkasten'
+"Plug 'vrouilhac/vim-neuron'
+
+Plug 'mbbill/undotree'
 call plug#end()
 
 " ~~~ Plugin Settings ~~~
 " gruvbox
 let g:gruvbox_contrast_dark='hard'
+" let g:gruvbox_contrast_light='hard'
 colorscheme gruvbox
 highlight Normal guibg=none
 
@@ -142,6 +146,9 @@ nnoremap <leader>gs :GFiles?<CR>
 nnoremap <leader>f :VimSearchMini 
 nnoremap <leader>* viwy:VimSearchMini <C-R>"<CR>
 
+" vim-neuron
+nnoremap <leader>gi :NeuronGenerateId<CR>
+
 " ale
 nnoremap <leader>i :ALEHover<CR>
 nnoremap gd :ALEGoToDefinition<CR>
@@ -155,6 +162,9 @@ nnoremap <leader>ph :GitGutterPrevHunk<CR>
 nnoremap <leader>sh :GitGutterStageHunk<CR>
 nnoremap <leader>guh :GitGutterUndoHunk<CR>
 
+" undotree
+nnoremap <C-U> :UndotreeToggle<CR>
+
 " ~~~ Mappings ~~~
 nnoremap <leader>so :source $MYVIMRC<CR>
 nnoremap <leader>v :e $MYVIMRC<CR>
@@ -167,6 +177,7 @@ vnoremap <C-J> 7j
 vnoremap <C-K> 7k
 vnoremap <C-H> ^
 vnoremap <C-L> $
+vnoremap <C-R> :s/
 
 nnoremap <leader>y "+y
 nnoremap <leader>pa "+p
@@ -185,6 +196,8 @@ nnoremap <C-N> :Lexplore<CR>
 nnoremap <leader>db :bwipeout<CR>
 nnoremap <leader>Q :copen<CR>
 
+vnoremap <leader>s :sort<CR>
+
 " ~~~ Auto commands ~~~
 augroup vrouilhac
 	autocmd!
@@ -201,3 +214,19 @@ augroup END
 " 	autocmd FileType javascript :iabbrev <buffer> logs console.log("
 " 	autocmd FileType javascript :iabbrev <buffer> logo console.log({ 
 " augroup END
+
+" Work in progress
+" func! MyCompletionFunc(findstart, base)
+" 	if a:findstart == 1
+" 		echom "first"
+" 	endif
+" 	if a:findstart == 0
+" 		let path = expand('%:p:h')
+" 		let results = system('~/.dotfiles/vim/scripts/./get_tag_list.sh "' . path . '" "' . a:base . '"')
+" 		let tag_list = split(results, '\n')
+" 		return tag_list
+" 	endif
+" 	return col('b')
+" endfunc
+
+" set completefunc=MyCompletionFunc

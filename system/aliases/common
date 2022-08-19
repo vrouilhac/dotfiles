@@ -1,7 +1,7 @@
 alias lsa='ls -A -1 -G'
 alias soh='exec $SHELL'
 alias history='history 0'
-alias hist='history 0 | grep '
+alias hist='history 0 | fzf'
 
 so() {
 	source $MYZSHRC

@@ -22,6 +22,10 @@ alias gdc='git diff --compact-summary'
 alias gdstat='git diff --numstat'
 alias gs='git status'
 
+alias gst='git stash'
+alias gsta='gaa && gs'
+alias gstp='git stash pop'
+
 alias gf='git fetch'
 alias gfa='git fetch --all --prune'
 
@@ -33,8 +37,15 @@ alias gpf='git push --force-with-lease'
 
 alias gm='git merge'
 
-alias grb='git rebase '
-alias grbi='git rebase -i '
+grb() {
+	rebase=$(git rebase $1 | sort | sed "s/^\(.*in \)\(.*\)/\1£e[31m\2/g" | tr '£' '\\')
+	clear
+	echo "\n"
+	echo -e $rebase
+}
+alias grba='git rebase --abort'
+alias grbc='git rebase --continue'
+alias grbs='git rebase --skip'
 
 alias grs='git reset'
 alias grss='git reset --soft'

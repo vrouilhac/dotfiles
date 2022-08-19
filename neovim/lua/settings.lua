@@ -22,3 +22,6 @@ g.mapleader = " "
 
 -- GitGutter
 g.gitgutter_map_keys = 0
+
+-- NERDTree
+g.NERDTreeShowHidden = 1

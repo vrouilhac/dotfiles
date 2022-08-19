@@ -1,5 +1,6 @@
 export MYZSHRC=~/.zshrc
 export MYDOTFILES=~/.dotfiles
+export PATH=~/.yarn/bin:$PATH
 
 # init zoxide
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

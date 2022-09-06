@@ -4,6 +4,7 @@ source $MYDOTFILES/system/aliases/common
 source $MYDOTFILES/system/aliases/curl
 source $MYDOTFILES/system/aliases/tmux
 source $MYDOTFILES/system/aliases/brew
+source $MYDOTFILES/system/aliases/custom_programs
 
 set -H
 
@@ -26,3 +27,4 @@ radb() {
 }
 
 alias vim='nvim'
+alias note='$MYDOTFILES/programs/./notes'

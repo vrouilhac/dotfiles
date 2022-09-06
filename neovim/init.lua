@@ -10,3 +10,7 @@ require('settings')
 require('mappings')
 
 vim.cmd('colorscheme ayu-mirage')
+vim.cmd('augroup html-ejs')
+vim.cmd('autocmd!')
+vim.cmd('autocmd BufNewFile,BufRead *.ejs set filetype=html')
+vim.cmd('augroup END')

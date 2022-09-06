@@ -1,6 +1,9 @@
 export MYZSHRC=~/.zshrc
 export MYDOTFILES=~/.dotfiles
+export N_PREFIX=/usr/local/bin
+export PATH=$N_PREFIX:$PATH
 export PATH=~/.yarn/bin:$PATH
+export EDITOR='vim'
 
 # init zoxide
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

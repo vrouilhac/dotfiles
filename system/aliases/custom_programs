@@ -1,0 +1,2 @@
+alias lsr='$MYDOTFILES/programs/./lsr'
+alias lsa='$MYDOTFILES/programs/./lsr -sfhd'

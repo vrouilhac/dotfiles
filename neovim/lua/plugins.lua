@@ -28,8 +28,28 @@ return require('packer').startup(function(use)
 		branch = 'artifacts'
 	}
 
+	use({
+		"andythigpen/nvim-coverage",
+		requires = "nvim-lua/plenary.nvim",
+		config = function()
+			require("user.coverage")
+		end,
+	})
+
+	use({
+		"Pocco81/true-zen.nvim",
+		config = function()
+			 require("true-zen").setup {
+				-- your config goes here
+				-- or just leave it empty :)
+			 }
+		end,
+	})
+
 	use 'airblade/vim-gitgutter'
 	use 'dense-analysis/ale'
+
+	use 'ellisonleao/glow.nvim'
 
 	use 'wakatime/vim-wakatime'
 end)

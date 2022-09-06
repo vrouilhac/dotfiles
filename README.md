@@ -28,3 +28,9 @@ Go setup
 Nodejs setup
 	- install nodejs
 	- install typescript globally
+
+Global install 
+	- (yarn) bash-language-server
+	- (brew) shellcheck 
+	- (brew) tmuxinator
+	- (brew) lua-language-server

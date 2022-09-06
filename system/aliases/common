@@ -2,6 +2,7 @@
 alias soh='exec $SHELL'
 alias history='history 0'
 alias hist='history 0 | fzf'
+alias lua='lua5.1'
 
 so() {
 	source $MYZSHRC

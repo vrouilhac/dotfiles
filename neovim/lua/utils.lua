@@ -1,13 +1,13 @@
-local map = function(m, k, v, b)
-    vim.keymap.set(m, k, v, b)
+local map = function(mode, key, action, options)
+	vim.keymap.set(mode, key, action, options)
 end
 
-local nmap = function(k, v, b)
-    map("n", k, v, b)
+local nmap = function(key, action, options)
+	map("n", key, action, options)
 end
 
-local vmap = function(k, v)
-    map("v", k, v)
+local vmap = function(key, action)
+	map("v", key, action)
 end
 
 return {

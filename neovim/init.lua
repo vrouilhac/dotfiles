@@ -6,10 +6,13 @@
 --
 
 require("plugins")
-require("settings")
-require("mappings")
+require("settings.init")
+require("mappings.init")
 
-vim.cmd("colorscheme ayu-mirage")
+
+-- vim.cmd("colorscheme ayu-mirage")
+-- vim.cmd("colorscheme ayu")
+vim.cmd("colorscheme everblush")
 -- vim.cmd('augroup html-ejs')
 -- vim.cmd('autocmd!')
 -- vim.cmd('autocmd BufNewFile,BufRead *.ejs set filetype=html')

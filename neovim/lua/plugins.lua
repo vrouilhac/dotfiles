@@ -1,61 +1,75 @@
 return require("packer").startup(
-    function(use)
-        use "wbthomason/packer.nvim"
-        use "neovim/nvim-lspconfig"
+	function(use)
+		use "wbthomason/packer.nvim"
+		use "neovim/nvim-lspconfig"
 
-        use "tpope/vim-commentary"
-        use "tpope/vim-surround"
+		use "tpope/vim-commentary"
+		use "tpope/vim-surround"
 
-        -- use "rstacruz/vim-closer"
+		-- use "rstacruz/vim-closer"
 
-        use "Shatur/neovim-ayu"
+		-- colorscheme
+		use { "catppuccin/nvim", as = "catppuccin" }
+		use "EdenEast/nightfox.nvim"
+		use 'tanvirtin/monokai.nvim'
+		use "Shatur/neovim-ayu"
+		use 'marko-cerovac/material.nvim'
+		use 'kvrohit/rasmus.nvim'
+		use 'folke/tokyonight.nvim'
+		use { 'Everblush/everblush.nvim', as = 'everblush' }
+		--
 
-        use "preservim/nerdtree"
+		use "preservim/nerdtree"
 
-        use "nvim-lua/plenary.nvim"
-        use "BurntSushi/ripgrep"
-        use {
-            "nvim-telescope/telescope.nvim",
-            tag = "0.1.0",
-            require = {{"nvim-lua/plenary.nvim"}}
-        }
+		use {
+			'nvim-treesitter/nvim-treesitter',
+			run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
+		}
 
-				use "ray-x/lsp_signature.nvim"
+		use "nvim-lua/plenary.nvim"
+		use "BurntSushi/ripgrep"
+		use {
+			"nvim-telescope/telescope.nvim",
+			tag = "0.1.0",
+			require = { { "nvim-lua/plenary.nvim" } }
+		}
 
-        use "ThePrimeagen/harpoon"
+		use "ray-x/lsp_signature.nvim"
 
-        use {
-            "ms-jpq/coq_nvim",
-            branch = "coq"
-        }
-        use {
-            "ms-jpq/coq.artifacts",
-            branch = "artifacts"
-        }
+		use "ThePrimeagen/harpoon"
 
-        -- use({
-        -- 	"andythigpen/nvim-coverage",
-        -- 	requires = "nvim-lua/plenary.nvim",
-        -- 	config = function()
-        -- 		require("user.coverage")
-        -- 	end,
-        -- })
+		use {
+			"ms-jpq/coq_nvim",
+			branch = "coq"
+		}
+		use {
+			"ms-jpq/coq.artifacts",
+			branch = "artifacts"
+		}
 
-        -- use({
-        -- 	"Pocco81/true-zen.nvim",
-        -- 	config = function()
-        -- 		 require("true-zen").setup {
-        -- 			-- your config goes here
-        -- 			-- or just leave it empty :)
-        -- 		 }
-        -- 	end,
-        -- })
+		-- use({
+		-- 	"andythigpen/nvim-coverage",
+		-- 	requires = "nvim-lua/plenary.nvim",
+		-- 	config = function()
+		-- 		require("user.coverage")
+		-- 	end,
+		-- })
 
-        use "airblade/vim-gitgutter"
-        -- use 'dense-analysis/ale'
+		-- use({
+		-- 	"Pocco81/true-zen.nvim",
+		-- 	config = function()
+		-- 		 require("true-zen").setup {
+		-- 			-- your config goes here
+		-- 			-- or just leave it empty :)
+		-- 		 }
+		-- 	end,
+		-- })
 
-        -- use 'ellisonleao/glow.nvim'
+		use "airblade/vim-gitgutter"
+		-- use 'dense-analysis/ale'
 
-        use "wakatime/vim-wakatime"
-    end
+		-- use 'ellisonleao/glow.nvim'
+
+		use "wakatime/vim-wakatime"
+	end
 )

@@ -18,5 +18,6 @@ opt.cursorline = true
 opt.updatetime = 100
 opt.termguicolors = true
 opt.completeopt = "menu"
+opt.cmdheight = 2
 
 g.mapleader = " "

@@ -25,6 +25,7 @@ nmap("<leader>u", "~")
 vmap("<leader>u", "~")
 nmap("zz", "za")
 nmap("ZZ", "zA")
+nmap("<leader>P", "\"_dP")
 
 -- diagnostic
 local diagnostic_opts = { noremap = true, silent = true }
@@ -33,3 +34,4 @@ local diag = vim.diagnostic
 nmap(']d', diag.goto_next, diagnostic_opts)
 nmap('[d', diag.goto_prev, diagnostic_opts)
 nmap('<leader>d', diag.open_float, diagnostic_opts)
+nmap('<leader>e', vim.diagnostic.open_float, diagnostic_opts)

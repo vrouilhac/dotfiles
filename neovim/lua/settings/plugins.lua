@@ -6,9 +6,13 @@ g.gitgutter_map_keys = 0
 -- NERDTree
 g.NERDTreeShowHidden = 1
 
+-- nvim-tree
+g.loaded = 1
+g.loaded_netrwPlugin = 1
+
 -- colorscheme
 -- g.material_style = "darker"
--- g.catppuccin_flavour = "macchiato"
+g.catppuccin_flavour = "mocha"
 -- g.rasmus_variant = "monochrome"
 
 -- format on save
@@ -40,3 +44,10 @@ require("nvim-treesitter.configs").setup({
 		enable = true
 	}
 })
+
+require("nvim-web-devicons").setup({})
+require("nvim-tree").setup({})
+
+require("lualine").setup({})
+
+require("git-conflict").setup({})

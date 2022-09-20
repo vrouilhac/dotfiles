@@ -1,0 +1,9 @@
+name: calistrainer
+root: $PERSO_PROJECT_DIR/calistrainer
+windows:
+  - Editor: vim
+  - Terminal:
+    layout: main-vertical
+    panes:
+      - yarn ios
+      - yarn start

@@ -12,7 +12,6 @@ eval "$(zoxide init zsh)"
 
 source $MYDOTFILES/system/.exports
 source $MYDOTFILES/system/.aliases
-source $MYDOTFILES/dotfiles-masteos/system/.aliases
 source $MYDOTFILES/dotfiles-ocf/system/.aliases
 
 source $MYDOTFILES/system/zsh/.autocomplete.zsh

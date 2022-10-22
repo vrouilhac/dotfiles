@@ -15,6 +15,9 @@ g.loaded_netrwPlugin = 1
 g.catppuccin_flavour = "mocha"
 -- g.rasmus_variant = "monochrome"
 
+-- git-blame
+g.gitblame_enabled = 0
+
 -- format on save
 -- js ts tsx
 vim.api.nvim_create_autocmd("BufWritePre", {

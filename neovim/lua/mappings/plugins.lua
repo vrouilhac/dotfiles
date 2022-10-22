@@ -24,5 +24,7 @@ nmap("<C-N>", ":NvimTreeToggle<CR>")
 -- Git blame
 nmap("<C-B>", ":GitBlameToggle<CR>")
 
+-- Git conflict
+
 
 -- See other mapping on settings.lsp

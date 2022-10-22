@@ -51,14 +51,14 @@ return require("packer").startup(
 
 		use "ThePrimeagen/harpoon"
 
-		use {
-			"ms-jpq/coq_nvim",
-			branch = "coq"
-		}
-		use {
-			"ms-jpq/coq.artifacts",
-			branch = "artifacts"
-		}
+		-- use {
+		-- 	"ms-jpq/coq_nvim",
+		-- 	branch = "coq"
+		-- }
+		-- use {
+		-- 	"ms-jpq/coq.artifacts",
+		-- 	branch = "artifacts"
+		-- }
 
 		-- use({
 		-- 	"andythigpen/nvim-coverage",

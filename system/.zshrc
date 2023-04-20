@@ -19,6 +19,7 @@ source $MYDOTFILES/system/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $MYOMZSH/oh-my-zsh.sh
 
 # enable autocompletion
+fpath+=~/.zfunc
 autoload -Uz compinit
 compinit
 

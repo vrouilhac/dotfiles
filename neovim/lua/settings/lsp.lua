@@ -1,6 +1,7 @@
 local lspconfig = require("lspconfig")
 local vimutil = require("vim.lsp.util")
 local lsp_signature = require("lsp_signature")
+local lspSignatureConfig = require("settings.plugins.lsp-signature")
 local utils = require("utils")
 
 local nmap = utils.nmap
@@ -9,7 +10,7 @@ local on_attach = function(_, bufnr)
 	-- autocomplete
 	vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
-	lsp_signature.on_attach({}, bufnr)
+	lsp_signature.on_attach(lspSignatureConfig.config, bufnr)
 
 	local bufops = { noremap = true, silent = true, buffer = bufnr }
 	nmap('gd', vim.lsp.buf.definition, bufops)
@@ -83,8 +84,36 @@ lspconfig.sumneko_lua.setup({
 	}
 })
 
+-- Python
+lspconfig.pylsp.setup({
+	on_attack = on_attach,
+	settings = {
+		pylsp = {
+			configurationSources = "flake8",
+			plugins = {
+				pydocstyle = {
+					enabled = true
+				},
+				flake8 = {
+					enabled = true,
+					maxLineLength = 100,
+				},
+				black = {
+					enabled = true,
+					maxLineLength = 100,
+				}
+			}
+		}
+	}
+})
+
 -- eslint (WIP)
 lspconfig.eslint.setup({})
+
+-- tailwindcss
+lspconfig.tailwindcss.setup({
+	on_attach = on_attach
+})
 
 -- popup hover information border
 -- Change border of documentation hover window, See https://github.com/neovim/neovim/pull/13998.

@@ -27,4 +27,7 @@ radb() {
 }
 
 alias vim='nvim'
-alias note='$MYDOTFILES/programs/./notes'
+
+# Obsolete
+# alias note='$MYDOTFILES/programs/./notes'
+alias nid='$MYDOTFILES/programs/nid/./nid'

@@ -13,11 +13,17 @@ opt.foldlevelstart = 20
 opt.wrap = false
 opt.foldmethod = "indent"
 opt.hlsearch = false
-opt.swapfile = false
 opt.cursorline = true
 opt.updatetime = 100
 opt.termguicolors = true
 opt.completeopt = "menu"
 opt.cmdheight = 2
+
+opt.smartindent = true
+
+opt.undodir = os.getenv("HOME") .. "/./vim/undodir"
+opt.undofile = true
+opt.backup = false
+opt.swapfile = false
 
 g.mapleader = " "

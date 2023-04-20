@@ -4,6 +4,11 @@ alias history='history 0'
 alias hist='history 0 | fzf'
 alias lua='lua5.1'
 
+cdl() {
+	cd $1
+	lsa
+}
+
 so() {
 	source $MYZSHRC
 	echo 'zsh reloaded!'

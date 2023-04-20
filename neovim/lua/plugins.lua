@@ -20,6 +20,7 @@ return require("packer").startup(
 		use 'Mofiqul/dracula.nvim'
 		--
 
+		-- Folder tree
 		use 'kyazdani42/nvim-web-devicons'
 		use {
 			'kyazdani42/nvim-tree.lua',
@@ -34,10 +35,13 @@ return require("packer").startup(
 
 		use "preservim/nerdtree"
 
-		use {
-			'nvim-treesitter/nvim-treesitter',
-			run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
-		}
+		use({
+			"nvim-treesitter/nvim-treesitter",
+			run = function()
+				local ts_update = require("nvim-treesitter.install").update({ with_sync = true })
+				ts_update()
+			end,
+		})
 
 		use "nvim-lua/plenary.nvim"
 		use "BurntSushi/ripgrep"
@@ -50,6 +54,30 @@ return require("packer").startup(
 		use "ray-x/lsp_signature.nvim"
 
 		use "ThePrimeagen/harpoon"
+		use { 'kevinhwang91/nvim-bqf' }
+		use {
+			"cbochs/grapple.nvim",
+			requires = { "nvim-lua/plenary.nvim" },
+		}
+		use {
+			"FeiyouG/command_center.nvim",
+			requires = { "nvim-telescope/telescope.nvim" }
+		}
+
+		use {
+			'VonHeikemen/fine-cmdline.nvim',
+			requires = {
+				{ 'MunifTanjim/nui.nvim' }
+			}
+		}
+
+		use {
+			'rmagatti/goto-preview',
+			config = function()
+				require('goto-preview').setup {}
+			end
+		}
+		use 'nvim-telescope/telescope-project.nvim'
 
 		-- use {
 		-- 	"ms-jpq/coq_nvim",
@@ -84,6 +112,8 @@ return require("packer").startup(
 		-- use 'dense-analysis/ale'
 
 		-- use 'ellisonleao/glow.nvim'
+
+		use "mbbill/undotree"
 
 		use "wakatime/vim-wakatime"
 	end

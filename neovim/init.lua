@@ -11,6 +11,8 @@ require("mappings.init")
 
 
 vim.cmd("colorscheme ayu-mirage")
+
+require("settings.colors")
 -- vim.cmd("colorscheme ayu")
 -- vim.cmd("colorscheme everblush")
 -- vim.cmd("colorscheme dracula")

@@ -84,7 +84,7 @@ require("git-conflict").setup({})
 require("lsp_signature").setup(lspSignature.config)
 
 cmd_center.add(cmd_center_mappings, cmd_center.mode.ADD_SET)
-
+local fb_actions = require "telescope".extensions.file_browser.actions
 telescope.setup({
 	extensions = {
 		command_center = {
@@ -99,11 +99,48 @@ telescope.setup({
 				cmd_center.component.CATEGORY,
 			},
 			auto_replace_desc_with_cmd = false,
-		}
+		},
+		file_browser = {
+			theme = "ivy",
+			-- disables netrw and use telescope-file-browser in its place
+			hijack_netrw = true,
+			git_status = true,
+			mappings = {
+				["i"] = {
+					["<C-a>"] = fb_actions.create,
+					["<C-r>"] = fb_actions.rename,
+					["<C-d>"] = fb_actions.remove
+				}
+			}
+		},
 	}
 })
 telescope.load_extension("command_center")
 telescope.load_extension("project")
+telescope.load_extension("file_browser")
 require("goto-preview").setup({
 	default_mappings = true
+})
+
+local cmp = require("cmp")
+
+cmp.setup({
+	snippet = {
+		expand = function(args)
+			require("luasnip").lsp_expand(args.body)
+		end,
+	},
+	mapping = cmp.mapping.preset.insert({
+		["<C-b>"] = cmp.mapping.scroll_docs(-4),
+		["<C-f>"] = cmp.mapping.scroll_docs(4),
+		["<C-Space>"] = cmp.mapping.complete(),
+		["<C-e>"] = cmp.mapping.abort(),
+		["<CR>"] = cmp.mapping.confirm({ select = true }),
+	}),
+	sources = cmp.config.sources({
+		{ name = "nvim_lsp" },
+		{ name = "luasnip" },
+		{ name = "buffer" },
+		{ name = "path" },
+	}),
 })

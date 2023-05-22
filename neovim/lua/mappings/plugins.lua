@@ -144,6 +144,14 @@ local cmd_center_mappings = {
 		},
 		category = "search"
 	},
+	{
+		desc = "Open Telescope File Browser",
+		cmd = "<CMD>Telescope file_browser<CR>",
+		keys = {
+			{ "n", "<leader>fb", cmd_opts },
+		},
+		category = "search"
+	},
 }
 
 return {

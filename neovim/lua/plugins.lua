@@ -78,6 +78,10 @@ return require("packer").startup(
 			end
 		}
 		use 'nvim-telescope/telescope-project.nvim'
+		use {
+			"nvim-telescope/telescope-file-browser.nvim",
+			requires = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
+		}
 
 		-- use {
 		-- 	"ms-jpq/coq_nvim",
@@ -116,5 +120,17 @@ return require("packer").startup(
 		use "mbbill/undotree"
 
 		use "wakatime/vim-wakatime"
+
+		use "hrsh7th/cmp-buffer"
+		use "hrsh7th/cmp-cmdline"
+		use "hrsh7th/cmp-nvim-lsp"
+		use "hrsh7th/cmp-path"
+		use "hrsh7th/nvim-cmp"
+		-- Motor de snippets
+		use "L3MON4D3/LuaSnip"
+		use "saadparwaiz1/cmp_luasnip"
+		use "hrsh7th/cmp-nvim-lsp"
+
+		use "~/Documents/perso/projects/nvim-zettelkasten"
 	end
 )

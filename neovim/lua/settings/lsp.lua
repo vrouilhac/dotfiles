@@ -107,47 +107,47 @@ local function get_python_path(workspace)
 	return exepath('python3') or exepath('python') or 'python'
 end
 
-vim.diagnostic.config({
-	virtual_text = false,
-	signs = true,
-	underline = false,
-	update_in_insert = false,
-	float = { border = "rounded" },
-	severity_sort = false,
-})
+-- vim.diagnostic.config({
+-- 	virtual_text = false,
+-- 	signs = true,
+-- 	underline = true,
+-- 	update_in_insert = false,
+-- 	float = { border = "rounded" },
+-- 	severity_sort = false,
+-- })
 
-lspconfig.pyright.setup({
-	before_init = function(_, config)
-		config.settings.python.pythonPath = get_python_path(config.root_dir)
-	end,
-	on_attach = on_attach,
-	capabilities = default_caps
-})
+-- lspconfig.pyright.setup({
+-- 	before_init = function(_, config)
+-- 		config.settings.python.pythonPath = get_python_path(config.root_dir)
+-- 	end,
+-- 	on_attach = on_attach,
+-- 	capabilities = default_caps
+-- })
 
-lspconfig.pylsp.setup({
-	before_init = function(_, config)
-		config.settings.python.pythonPath = get_python_path(config.root_dir)
-	end,
-	on_attack = on_attach,
-	settings = {
-		pylsp = {
-			-- configurationSources = "flake8",
-			plugins = {
-				pydocstyle = {
-					enabled = true
-				},
-				-- flake8 = {
-				-- 	enabled = true,
-				-- 	maxLineLength = 100,
-				-- },
-				black = {
-					enabled = true,
-					maxLineLength = 100,
-				}
-			}
-		}
-	}
-})
+-- lspconfig.pylsp.setup({
+-- 	before_init = function(_, config)
+-- 		config.settings.python.pythonPath = get_python_path(config.root_dir)
+-- 	end,
+-- 	on_attack = on_attach,
+-- 	settings = {
+-- 		pylsp = {
+-- 			-- configurationSources = "flake8",
+-- 			plugins = {
+-- 				pydocstyle = {
+-- 					enabled = true
+-- 				},
+-- 				-- flake8 = {
+-- 				-- 	enabled = true,
+-- 				-- 	maxLineLength = 100,
+-- 				-- },
+-- 				black = {
+-- 					enabled = true,
+-- 					maxLineLength = 100,
+-- 				}
+-- 			}
+-- 		}
+-- 	}
+-- })
 
 -- eslint (WIP)
 lspconfig.eslint.setup({})

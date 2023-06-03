@@ -28,6 +28,7 @@ return require("packer").startup(
 				'kyazdani42/nvim-web-devicons'
 			}
 		}
+		use "jose-elias-alvarez/null-ls.nvim"
 		use {
 			'nvim-lualine/lualine.nvim',
 			requires = { 'kyazdani42/nvim-web-devicons', opt = true }
@@ -130,6 +131,9 @@ return require("packer").startup(
 		use "L3MON4D3/LuaSnip"
 		use "saadparwaiz1/cmp_luasnip"
 		use "hrsh7th/cmp-nvim-lsp"
+
+		use "averms/black-nvim"
+
 
 		use "~/Documents/perso/projects/nvim-zettelkasten"
 	end

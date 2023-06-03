@@ -1,8 +1,8 @@
 export MYZSHRC=~/.zshrc
 export MYDOTFILES=~/.dotfiles
 export N_PREFIX=/usr/local/bin
-export PATH=$N_PREFIX:$PATH
 export PATH=~/.yarn/bin:$PATH
+export PATH=/usr/local/bin:$PATH
 export EDITOR='vim'
 export PERSO_PROJECTS_DIR=~/Documents/perso/projects
 

@@ -1,3 +1,0 @@
-alias bsi='brew services info'
-alias bsimdb='bsi mongodb-community'
-alias bsid='bsi docker'

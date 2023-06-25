@@ -1,6 +1,0 @@
-[submodule "dotfiles-masteos"]
-	path = dotfiles-masteos
-	url = git@github.com:vrouilhac/dotfiles-masteos.git
-[submodule "dotfiles-ocf"]
-	path = dotfiles-ocf
-	url = git@github.com:vrouilhac/dotfiles-ocf.git

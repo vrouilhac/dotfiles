@@ -1,5 +1,0 @@
-alias lsr='$MYDOTFILES/programs/./lsr'
-alias lsa='$MYDOTFILES/programs/./lsr -sfhd'
-
-alias gen_name='$MYDOTFILES/programs/./random_names'
-alias mkdirgn='TMP_VAR=$(gen_name) && mkdir $TMP_VAR && cd $TMP_VAR && echo "New project folder : $TMP_VAR"'

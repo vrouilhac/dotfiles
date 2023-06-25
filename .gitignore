@@ -1,5 +1,2 @@
 *.swp
 .DS_STORE
-.vimrc
-!~/.dotfiles/vim/.vimrc
-.git

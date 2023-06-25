@@ -5,19 +5,23 @@
 --    \_/ |_|  \___/ \__,_|_|_|_| |_|\__,_|\___| |_| |_|\_/ |_|_| |_| |_|
 --
 
-require("plugins")
-require("settings.init")
-require("mappings.init")
+-- Base Configuration
+require "user.options"     -- Options for VIM
+require "user.colorscheme" -- Colorscheme config
 
+-- Keymaps
+require "user.keymaps"
 
-vim.cmd("colorscheme ayu-mirage")
+-- Plugins
+require "user.plugins" -- List of all used plugins
 
-require("settings.colors")
--- vim.cmd("colorscheme ayu")
--- vim.cmd("colorscheme everblush")
--- vim.cmd("colorscheme dracula")
--- vim.cmd("colorscheme catppuccin")
--- vim.cmd('augroup html-ejs')
--- vim.cmd('autocmd!')
--- vim.cmd('autocmd BufNewFile,BufRead *.ejs set filetype=html')
--- vim.cmd('augroup END')
+require "user.cmp"
+require "user.gitsigns"
+require "user.indent-blankline"
+require "user.lsp"
+require "user.lualine"
+require "user.nvim-tree"
+require "user.sniprun"
+require "user.telescope"
+require "user.treesitter"
+require "user.trouble"

@@ -1,6 +1,8 @@
 # Variables
 export DOTFILES=$HOME/.dotfiles
 export ZSH_CONFIG=$HOME/.config/zsh
+export PATH="/opt/homebrew/opt/icu4c/bin:$PATH"
+export PATH="/opt/homebrew/opt/icu4c/sbin:$PATH"
 
 # Aliases
 if [[ -f $DOTFILES/zsh/aliases.sh ]]; then
@@ -31,3 +33,4 @@ fi
 
 # Zoxide
 eval "$(zoxide init zsh)"
+

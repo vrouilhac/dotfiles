@@ -25,7 +25,7 @@ local options = {
 	root_dir = require("null-ls.utils").root_pattern(".null-ls-root", "Makefile", ".git"),
 	should_attach = nil,
 	sources = {
-		formatting.eslint,
+		formatting.eslint_d,
 		formatting.black.with({ extra_args = { "--fast" } }),
 		formatting.stylua,
 		diagnostics.flake8,

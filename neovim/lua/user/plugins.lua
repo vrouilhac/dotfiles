@@ -48,6 +48,7 @@ return packer.startup(function(use)
 
 	use "tpope/vim-commentary"  -- Allow toggle comment section of code
 	use "tpope/vim-surround"    -- Allow to swap surrounding characters
+	use "tpope/vim-fugitive"
 
 	-- cmp plugins
 	use "hrsh7th/nvim-cmp"        -- The completion plugin
@@ -76,8 +77,9 @@ return packer.startup(function(use)
 		"nvim-treesitter/nvim-treesitter",
 		run = ":TSUpdate"
 	}
+	use "nvim-treesitter/nvim-treesitter-context"
 
-	use 'romgrk/barbar.nvim'  -- Use of tabs
+	-- use 'romgrk/barbar.nvim'  -- Use of tabs
 
 	use "ThePrimeagen/harpoon" -- Easy jumps on a set of file
 

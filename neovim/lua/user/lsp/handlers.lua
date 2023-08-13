@@ -60,11 +60,23 @@ local function lsp_highlight_document(client)
 	end
 end
 
-local function lsp_format_on_save()
+local lsp_format = function(bufnr)
+	vim.lsp.buf.format({
+		filter = function(client)
+			return client.name == "null-ls"
+		end,
+		bufnr = bufnr,
+		timeout_ms = 5000
+	})
+end
+
+local function lsp_format_on_save(bufnr)
 	vim.api.nvim_create_autocmd("BufWritePre", {
-		pattern = { '*.tsx', '*.ts', '*.js', '*.py', '*.lua', '*.rs' },
-		command = 'silent! lua vim.lsp.buf.format({ timeout_ms = 3000 })',
-		group = vim.api.nvim_create_augroup("lsp_format_on_save", {})
+		pattern = { "*" },
+		group = vim.api.nvim_create_augroup("lsp_format_on_save", {}),
+		callback = function()
+			lsp_format(bufnr)
+		end
 	})
 end
 
@@ -100,7 +112,7 @@ M.on_attach = function(client, bufnr)
 	end
 	lsp_keymaps(bufnr)
 	lsp_highlight_document(client)
-	lsp_format_on_save()
+	-- lsp_format_on_save(bufnr)
 end
 
 local status_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")

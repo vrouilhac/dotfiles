@@ -74,10 +74,15 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
-  LuaSnip = {
+  ["black-nvim"] = {
     loaded = true,
-    path = "/Users/vincentrouilhac/.local/share/nvim/site/pack/packer/start/LuaSnip",
-    url = "https://github.com/L3MON4D3/LuaSnip"
+    path = "/Users/vincentrouilhac/.local/share/nvim/site/pack/packer/start/black-nvim",
+    url = "https://github.com/averms/black-nvim"
+  },
+  catppuccin = {
+    loaded = true,
+    path = "/Users/vincentrouilhac/.local/share/nvim/site/pack/packer/start/catppuccin",
+    url = "https://github.com/catppuccin/nvim"
   },
   ["cmp-buffer"] = {
     loaded = true,
@@ -104,15 +109,10 @@ _G.packer_plugins = {
     path = "/Users/vincentrouilhac/.local/share/nvim/site/pack/packer/start/cmp-path",
     url = "https://github.com/hrsh7th/cmp-path"
   },
-  cmp_luasnip = {
+  ["formatter.nvim"] = {
     loaded = true,
-    path = "/Users/vincentrouilhac/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
-    url = "https://github.com/saadparwaiz1/cmp_luasnip"
-  },
-  ["friendly-snippets"] = {
-    loaded = true,
-    path = "/Users/vincentrouilhac/.local/share/nvim/site/pack/packer/start/friendly-snippets",
-    url = "https://github.com/rafamadriz/friendly-snippets"
+    path = "/Users/vincentrouilhac/.local/share/nvim/site/pack/packer/start/formatter.nvim",
+    url = "https://github.com/mhartington/formatter.nvim"
   },
   ["gitsigns.nvim"] = {
     loaded = true,
@@ -124,10 +124,10 @@ _G.packer_plugins = {
     path = "/Users/vincentrouilhac/.local/share/nvim/site/pack/packer/start/harpoon",
     url = "https://github.com/ThePrimeagen/harpoon"
   },
-  ["indent-blankline.nvim"] = {
+  ["kanagawa.nvim"] = {
     loaded = true,
-    path = "/Users/vincentrouilhac/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
-    url = "https://github.com/lukas-reineke/indent-blankline.nvim"
+    path = "/Users/vincentrouilhac/.local/share/nvim/site/pack/packer/start/kanagawa.nvim",
+    url = "https://github.com/rebelot/kanagawa.nvim"
   },
   ["lualine.nvim"] = {
     loaded = true,
@@ -143,6 +143,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/vincentrouilhac/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
+  },
+  ["material.nvim"] = {
+    loaded = true,
+    path = "/Users/vincentrouilhac/.local/share/nvim/site/pack/packer/start/material.nvim",
+    url = "https://github.com/marko-cerovac/material.nvim"
   },
   ["neovim-ayu"] = {
     loaded = true,
@@ -164,11 +169,6 @@ _G.packer_plugins = {
     path = "/Users/vincentrouilhac/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
   },
-  ["nvim-notify"] = {
-    loaded = true,
-    path = "/Users/vincentrouilhac/.local/share/nvim/site/pack/packer/start/nvim-notify",
-    url = "https://github.com/rcarriga/nvim-notify"
-  },
   ["nvim-tree.lua"] = {
     loaded = true,
     path = "/Users/vincentrouilhac/.local/share/nvim/site/pack/packer/start/nvim-tree.lua",
@@ -189,6 +189,16 @@ _G.packer_plugins = {
     path = "/Users/vincentrouilhac/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
     url = "https://github.com/kyazdani42/nvim-web-devicons"
   },
+  ["onenord.nvim"] = {
+    loaded = true,
+    path = "/Users/vincentrouilhac/.local/share/nvim/site/pack/packer/start/onenord.nvim",
+    url = "https://github.com/rmehri01/onenord.nvim"
+  },
+  ["oxocarbon.nvim"] = {
+    loaded = true,
+    path = "/Users/vincentrouilhac/.local/share/nvim/site/pack/packer/start/oxocarbon.nvim",
+    url = "https://github.com/nyoom-engineering/oxocarbon.nvim"
+  },
   ["packer.nvim"] = {
     loaded = true,
     path = "/Users/vincentrouilhac/.local/share/nvim/site/pack/packer/start/packer.nvim",
@@ -204,20 +214,10 @@ _G.packer_plugins = {
     path = "/Users/vincentrouilhac/.local/share/nvim/site/pack/packer/start/popup.nvim",
     url = "https://github.com/nvim-lua/popup.nvim"
   },
-  sniprun = {
-    loaded = true,
-    path = "/Users/vincentrouilhac/.local/share/nvim/site/pack/packer/start/sniprun",
-    url = "https://github.com/michaelb/sniprun"
-  },
   ["telescope.nvim"] = {
     loaded = true,
     path = "/Users/vincentrouilhac/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
-  },
-  ["trouble.nvim"] = {
-    loaded = true,
-    path = "/Users/vincentrouilhac/.local/share/nvim/site/pack/packer/start/trouble.nvim",
-    url = "https://github.com/folke/trouble.nvim"
   },
   ["vim-commentary"] = {
     loaded = true,

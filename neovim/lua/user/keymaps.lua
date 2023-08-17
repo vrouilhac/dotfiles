@@ -65,12 +65,12 @@ nmap("<C-p>", "<CMD>Telescope find_files hidden=true<CR>", opts)
 nmap("<C-g>", "<CMD>Telescope live_grep<CR>", opts)
 
 -- Harpoon
-nmap("<leader>ft", "<CMD>lua require('harpoon.ui').toggle_quick_menu()<CR>", opts)
-nmap("<leader>fa", "<CMD>lua require('harpoon.mark').add_file()<CR>", opts)
-nmap("<leader>h", "<CMD>lua require('harpoon.ui').nav_file(1)<CR>", opts)
-nmap("<leader>j", "<CMD>lua require('harpoon.ui').nav_file(2)<CR>", opts)
-nmap("<leader>k", "<CMD>lua require('harpoon.ui').nav_file(3)<CR>", opts)
-nmap("<leader>l", "<CMD>lua require('harpoon.ui').nav_file(4)<CR>", opts)
+nmap("<leader>tm", "<CMD>lua require('harpoon.ui').toggle_quick_menu()<CR>", opts)
+nmap("<leader>ha", "<CMD>lua require('harpoon.mark').add_file()<CR>", opts)
+nmap("<leader>a", "<CMD>lua require('harpoon.ui').nav_file(1)<CR>", opts)
+nmap("<leader>z", "<CMD>lua require('harpoon.ui').nav_file(2)<CR>", opts)
+nmap("<leader>e", "<CMD>lua require('harpoon.ui').nav_file(3)<CR>", opts)
+nmap("<leader>r", "<CMD>lua require('harpoon.ui').nav_file(4)<CR>", opts)
 
 -- NvimTree
 nmap("<C-n>", ":NvimTreeToggle<CR>", opts)
@@ -88,4 +88,4 @@ nmap("<C-t>", ":Trouble<CR>", opts)
 vmap("<leader>sr", ":'<,'>SnipRun")
 
 -- Custom
-nmap("<leader>cp", ":lua require('user.custom').cp_path()<CR>", opts) -- copy path under cursor
+nmap("<leader>cp", ":lua require('user.custom').cp_path()<CR>", opts) -- copy the currently opened file to clipboard

@@ -6,7 +6,7 @@
 --
 
 -- Base Configuration
-require "user.options"     -- Options for VIM
+require "user.options" -- Options for VIM
 require "user.colorscheme" -- Colorscheme config
 
 -- Keymaps
@@ -15,13 +15,13 @@ require "user.keymaps"
 -- Plugins
 require "user.plugins" -- List of all used plugins
 
-require "user.cmp"
 require "user.gitsigns"
-require "user.indent-blankline"
+require "user.cmp"
 require "user.lsp"
 require "user.lualine"
 require "user.nvim-tree"
-require "user.sniprun"
 require "user.telescope"
 require "user.treesitter"
-require "user.trouble"
+-- require "user.indent-blankline"
+-- require "user.sniprun"
+-- require "user.trouble"

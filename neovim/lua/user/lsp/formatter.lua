@@ -24,6 +24,12 @@ formatter.setup(
       typescriptreact = {
         require("formatter.filetypes.typescriptreact").eslint_d
       },
+      typescript = {
+        require("formatter.filetypes.typescript").eslint_d
+      },
+      javascript = {
+        require("formatter.filetypes.javascript").eslint_d
+      },
       css = {
         require("formatter.filetypes.css").stylefmt
       },
@@ -40,6 +46,9 @@ formatter.setup(
         function()
           return lua_format_opts
         end
+      },
+      yaml = {
+        require("formatter.filetypes.yaml").yamlfmt
       }
     }
   }

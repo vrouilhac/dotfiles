@@ -42,6 +42,9 @@ formatter.setup(
       rust = {
         require("formatter.filetypes.rust").rustfmt
       },
+      json = {
+        require("formatter.filetypes.json").prettierd
+      },
       lua = {
         function()
           return lua_format_opts
@@ -49,6 +52,12 @@ formatter.setup(
       },
       yaml = {
         require("formatter.filetypes.yaml").yamlfmt
+      },
+      ocaml = {
+        require("formatter.filetypes.ocaml").ocamlformat
+      },
+      html = {
+        require("formatter.filetypes.html").prettierd
       }
     }
   }

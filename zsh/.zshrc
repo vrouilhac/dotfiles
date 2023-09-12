@@ -4,6 +4,8 @@ export ZSH_CONFIG=$HOME/.config/zsh
 export PATH="/opt/homebrew/opt/icu4c/bin:$PATH"
 export PATH="/opt/homebrew/opt/icu4c/sbin:$PATH"
 export PATH="$HOME/.ghcup/bin:$PATH"
+export GOPATH="$HOME/go"
+export PATH="$GOPATH/bin:$PATH"
 
 # Aliases
 if [[ -f $DOTFILES/zsh/aliases.sh ]]; then
@@ -35,3 +37,5 @@ fi
 # Zoxide
 eval "$(zoxide init zsh)"
 
+# opam
+[[ ! -r /Users/vincentrouilhac/.opam/opam-init/init.zsh ]] || source /Users/vincentrouilhac/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null

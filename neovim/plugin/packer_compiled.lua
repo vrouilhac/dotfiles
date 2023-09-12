@@ -124,11 +124,6 @@ _G.packer_plugins = {
     path = "/Users/vincentrouilhac/.local/share/nvim/site/pack/packer/start/harpoon",
     url = "https://github.com/ThePrimeagen/harpoon"
   },
-  ["kanagawa.nvim"] = {
-    loaded = true,
-    path = "/Users/vincentrouilhac/.local/share/nvim/site/pack/packer/start/kanagawa.nvim",
-    url = "https://github.com/rebelot/kanagawa.nvim"
-  },
   ["lualine.nvim"] = {
     loaded = true,
     path = "/Users/vincentrouilhac/.local/share/nvim/site/pack/packer/start/lualine.nvim",
@@ -143,11 +138,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/vincentrouilhac/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
-  },
-  ["material.nvim"] = {
-    loaded = true,
-    path = "/Users/vincentrouilhac/.local/share/nvim/site/pack/packer/start/material.nvim",
-    url = "https://github.com/marko-cerovac/material.nvim"
   },
   ["neovim-ayu"] = {
     loaded = true,
@@ -189,16 +179,6 @@ _G.packer_plugins = {
     path = "/Users/vincentrouilhac/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
     url = "https://github.com/kyazdani42/nvim-web-devicons"
   },
-  ["onenord.nvim"] = {
-    loaded = true,
-    path = "/Users/vincentrouilhac/.local/share/nvim/site/pack/packer/start/onenord.nvim",
-    url = "https://github.com/rmehri01/onenord.nvim"
-  },
-  ["oxocarbon.nvim"] = {
-    loaded = true,
-    path = "/Users/vincentrouilhac/.local/share/nvim/site/pack/packer/start/oxocarbon.nvim",
-    url = "https://github.com/nyoom-engineering/oxocarbon.nvim"
-  },
   ["packer.nvim"] = {
     loaded = true,
     path = "/Users/vincentrouilhac/.local/share/nvim/site/pack/packer/start/packer.nvim",
@@ -218,6 +198,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/vincentrouilhac/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
+  },
+  ["vim-be-good"] = {
+    loaded = true,
+    path = "/Users/vincentrouilhac/.local/share/nvim/site/pack/packer/start/vim-be-good",
+    url = "https://github.com/ThePrimeagen/vim-be-good"
   },
   ["vim-commentary"] = {
     loaded = true,

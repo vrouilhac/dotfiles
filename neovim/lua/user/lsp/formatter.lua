@@ -50,15 +50,18 @@ formatter.setup(
           return lua_format_opts
         end
       },
-      yaml = {
-        require("formatter.filetypes.yaml").yamlfmt
-      },
+      -- yaml = {
+      --   require("formatter.filetypes.yaml").yamlfmt
+      -- },
       ocaml = {
         require("formatter.filetypes.ocaml").ocamlformat
       },
-      html = {
-        require("formatter.filetypes.html").prettierd
+      terraform = {
+        require("formatter.filetypes.terraform").terraformfmt
       }
+      -- html = {
+      --   require("formatter.filetypes.html").prettierd
+      -- }
     }
   }
 )

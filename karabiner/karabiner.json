@@ -1,10 +1,30 @@
 {
   "profiles": [
     {
-      "name": "vrouilhac",
+      "name": "vrouilhac-dev",
       "selected": true,
       "complex_modifications": {
         "rules": [
+          {
+            "description": "<C-F2> to go to normal profile",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "f2",
+                  "modifiers": {
+                    "mandatory": ["control"]
+                  }
+                }
+              },
+              {
+                "to": [
+                  {
+                    "shell_command": "'/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --select-profile 'vrouilhac-normal'"
+                  }
+                ]
+              }
+            ]
+          },
           {
             "description": "Avoid annoying tilde",
             "manipulators": [
@@ -21,6 +41,25 @@
                   {
                     "key_code": "n",
                     "modifiers": ["option"]
+                  },
+                  {
+                    "key_code": "spacebar"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "description": "Avoid annoying ^",
+            "manipulators": [
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "open_bracket"
+                },
+                "to": [
+                  {
+                    "key_code": "open_bracket"
                   },
                   {
                     "key_code": "spacebar"
@@ -80,6 +119,62 @@
                     "key_code": "spacebar"
                   }
                 ]
+              }
+            ]
+          }
+        ]
+      },
+      "fn_function_keys": [
+        {
+          "from": {
+            "key_code": "f1"
+          },
+          "to": [{ "key_code": "apple_display_brightness_decrement" }]
+        },
+        {
+          "from": {
+            "key_code": "f2"
+          },
+          "to": [{ "key_code": "apple_display_brightness_increment" }]
+        }
+      ]
+    },
+    {
+      "name": "vrouilhac-normal",
+      "complex_modifications": {
+        "rules": [
+          {
+            "description": "<C-F1> to go to dev profile",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "f1",
+                  "modifiers": {
+                    "mandatory": ["control"]
+                  }
+                }
+              },
+              {
+                "to": [
+                  {
+                    "shell_command": "'/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --select-profile 'vrouilhac-dev'"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "description": "Remap CAPS LOCK to Ctrl",
+            "manipulators": [
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "caps_lock",
+                  "modifiers": {
+                    "optional": ["any"]
+                  }
+                },
+                "to": [{ "key_code": "left_control" }]
               }
             ]
           }

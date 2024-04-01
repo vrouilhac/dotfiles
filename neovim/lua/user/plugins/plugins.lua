@@ -39,6 +39,8 @@ M.init = function(use)
   use "jose-elias-alvarez/null-ls.nvim" -- LSP diagnostics and code actions
   use "mhartington/formatter.nvim"
   use "averms/black-nvim"
+  use "L3MON4D3/LuaSnip" -- Snippets support
+  use "saadparwaiz1/cmp_luasnip"
 
   -- cmp plugins
   use "hrsh7th/nvim-cmp" -- The completion plugin
@@ -60,6 +62,22 @@ M.init = function(use)
 
   -- Time tracking
   use "wakatime/vim-wakatime"
+
+  -- Tests
+  use "stevearc/oil.nvim"
+
+  -- Misc
+  use "folke/todo-comments.nvim"
+  use "folke/trouble.nvim"
+
+  use "nvimdev/dashboard-nvim"
+
+  use {"michaelb/sniprun", run = "sh ./install.sh"}
+  use "rcarriga/nvim-notify"
+  use "sindrets/diffview.nvim"
+  use "mbbill/undotree"
+  use "joerdav/templ.vim"
+  -- use "github/copilot.vim"
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

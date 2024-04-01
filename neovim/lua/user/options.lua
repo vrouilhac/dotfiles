@@ -23,6 +23,9 @@ local options = {
 	fileencoding = "utf-8",				-- Set the file encoding to UTF-8
 	foldlevelstart = 20,					-- Define the default foldlevel when a buffer is open
 
+	-- Dev clues
+	colorcolumn = "80",
+
 
 
 
